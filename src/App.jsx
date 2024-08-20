@@ -9,16 +9,16 @@ const db = getFirestore(app);
 
 function App() {
   const [count, setCount] = useState(0)
-  const [linksData, setLinksData] = useState([])
+  const [links, setlinks] = useState([])
 
   useEffect(() => {
     const getDocuments = async () => {
-      const linkColection = collection(db, 'link');
-      const linkDocuments = await getDocs(linkColection);
-      const linksList = linkDocuments.docs.map(doc => doc.data());
+      const linkCollection = collection(db, 'links');
+      const linkDocuments = await getDocs(linkCollection);
+      const links = linkDocuments.docs.map(doc => doc.data());
       
-      setLinksData(linksList)
-      setCount(linksList.length)
+      setlinks(links)
+      setCount(links.length)
     }
 
     getDocuments()
@@ -33,7 +33,7 @@ function App() {
         width: 1280
       }}  >
       <h1>Hello World!</h1>
-      {linksData.map((link) =>
+      {links.map((link) =>
         <p key={link.id} style={{textAlign: "center"}}>{link.url}</p> 
       )}
       <div>
