@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
@@ -7,19 +7,23 @@ import { firebaseConfig } from './firebase_config';
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function getDocuments(db) {
-  const linkColection = collection(db, 'link');
-  const linkDocuments = await getDocs(linkColection);
-  const linksList = linkDocuments.docs.map(doc => doc.data());
-  return linksList;
-}
-
-const links = await getDocuments(db)
-
 function App() {
-  const [count, setCount] = useState(1)
-  
+  const [count, setCount] = useState(0)
+  const [linksData, setLinksData] = useState([])
 
+  useEffect(() => {
+    const getDocuments = async () => {
+      const linkColection = collection(db, 'link');
+      const linkDocuments = await getDocs(linkColection);
+      const linksList = linkDocuments.docs.map(doc => doc.data());
+      return linksList;
+    }
+
+    getDocuments().then((links) => {
+      setLinksData(links)
+    })
+  }, [])
+  
   return (
     <div style={{
         display: "flex", 
@@ -29,7 +33,7 @@ function App() {
         width: 1280
       }}  >
       <h1>Hello World!</h1>
-      {links.map((link) =>
+      {linksData.map((link) =>
         <p key={link.id} style={{textAlign: "center"}}>{link.url}</p> 
       )}
       <div>
