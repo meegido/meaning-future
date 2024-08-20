@@ -16,12 +16,12 @@ function App() {
       const linkColection = collection(db, 'link');
       const linkDocuments = await getDocs(linkColection);
       const linksList = linkDocuments.docs.map(doc => doc.data());
-      return linksList;
+      
+      setLinksData(linksList)
+      setCount(linksList.length)
     }
 
-    getDocuments().then((links) => {
-      setLinksData(links)
-    })
+    getDocuments()
   }, [])
   
   return (

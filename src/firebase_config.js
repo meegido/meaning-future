@@ -1,12 +1,12 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyCgaJB8Jq04Nse3voLm8flrbaV7fQBljbk",
-  authDomain: "db-test-a2b82.firebaseapp.com",
-  databaseURL: "https://DATABASE_NAME.firebaseio.com",
+  apiKey: import.meta.env.API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  databaseURL: import.meta.env.DATABASE_URL,
   projectId: "db-test-a2b82",
-  storageBucket: "db-test-a2b82.appspot.com",
-  messagingSenderId: "291215859077",
-  appId: "1:291215859077:web:a5978e46369859b205f8ec",
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID,
   // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
-  measurementId: "G-MEASUREMENT_ID",
+  measurementId: import.meta.env.MEASUREMENT_ID,
 };
 
