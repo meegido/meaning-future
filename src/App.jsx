@@ -10,12 +10,16 @@ const db = getFirestore(app);
 function App() {
   const [count, setCount] = useState(0)
   const [links, setlinks] = useState([])
+  console.log(links)
 
   useEffect(() => {
     const getDocuments = async () => {
       const linkCollection = collection(db, 'links');
       const linkDocuments = await getDocs(linkCollection);
-      const links = linkDocuments.docs.map(doc => doc.data());
+      const links = linkDocuments.docs.map(doc => Object.assign(
+        doc.data(), 
+        { id: Math.floor(Math.random() * 100)})
+      );
       
       setlinks(links)
       setCount(links.length)
@@ -34,7 +38,16 @@ function App() {
       }}  >
       <h1>Hello World!</h1>
       {links.map((link) =>
-        <p key={link.id} style={{textAlign: "center"}}>{link.url}</p> 
+        <div key={link.id} style={{textAlign: "center", paddingBottom: 24}}>
+          <p>{link.url}</p>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+            <img style={{width: 20, height: 20 }} alt="Service icon" src={link.serviceIcon} />
+            <p>{link.service}</p>
+          </div>
+          <p>{link.title}</p>
+          <p>{link.text}</p>
+          <img style={{width: 200, height: 200, borderRadius: 8 }} alt="Image" src={link.imageUrl} />
+        </div>
       )}
       <div>
         <button onClick={() => setCount((count) => count + 1)}>
