@@ -15,9 +15,11 @@ function App() {
     const getDocuments = async () => {
       const linkCollection = collection(db, 'links');
       const linkDocuments = await getDocs(linkCollection);
-      const links = linkDocuments.docs.map(doc => doc.data());
+      const links = linkDocuments.docs.map(doc => {
+        return {id: doc.id, ...doc.data()}
+      });
      
-      console.log(links, "links")
+      // console.log(links, "links")
 
       setlinks(links)
       setCount(links.length)
