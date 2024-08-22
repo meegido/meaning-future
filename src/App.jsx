@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import './App.css';
+import './app.style.module.jsx';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { firebaseConfig } from './firebase_config';
+import Link from './Link/link';
+import { Main, Header } from './app.style.module'
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -24,37 +26,33 @@ function App() {
       setlinks(links)
       setCount(links.length)
     }
-
+  
     getDocuments()
   }, [])
   
   return (
-    <div style={{
-        display: "flex", 
-        flexDirection: "column", 
-        justifyContent: "center", 
-        alignItems: "center",
-        width: 1280
-      }}  >
-      <h1>Hello World!</h1>
-      {links.map((link) =>
-        <div key={link.id} style={{textAlign: "center", paddingBottom: 24}}>
-          <p>{link.url}</p>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-            <img style={{width: 20, height: 20 }} alt="Service icon" src={link.serviceIcon} />
-            <p>{link.service}</p>
-          </div>
-          <p>{link.title}</p>
-          <p>{link.text}</p>
-          <img style={{width: 200, height: 200, borderRadius: 8 }} alt="Image" src={link.imageUrl} />
+    <>
+      <Header>
+        <h1>Meaning future</h1>
+      </Header>
+      <Main>
+        {links.map((link) =>
+          <Link
+            key={link.id}
+            serviceIcon={link.serviceIcon}
+            url={link.url}
+            title={link.title}
+            text={link.text}
+            bgImage={link.imageUrl}
+          />
+        )}
+        <div>
+          <button onClick={() => setCount((count) => count + 1)}>
+            There is {count} url for now 😎
+          </button>
         </div>
-      )}
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          There is {count} url for now 😎
-        </button>
-      </div>
-    </div>
+      </Main>
+    </>
   )
 }
 
