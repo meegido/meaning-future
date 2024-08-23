@@ -5,11 +5,6 @@ const iconSize = () => css`
   height: 24px;
 `;
 
-const imageSize = () => css`
-  width: 312px;
-  height: 258px;
-`;
-
 const columnCenter = () => css`
   display: flex;
   flex-direction: column;
@@ -22,11 +17,6 @@ const wrapperPadding = () => css`
 
 const noPadding = () => css`
   padding: 0;
-`;
-
-const leftPlacingRow = () => css`
-  display: flex;
-  justify-content: flex-end;
 `;
 
 export const Icon = styled.img`
@@ -53,8 +43,4 @@ export const Description = styled.div`
   ${noPadding}
   gap: 12px;
 `;
-
-export const LinkIcon = styled.a`
-  ${leftPlacingRow}
-`
 
