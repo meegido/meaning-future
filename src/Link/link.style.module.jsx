@@ -19,6 +19,19 @@ const noPadding = () => css`
   padding: 0;
 `;
 
+export const Article = styled.article`
+  display: flex;
+  width: 508px;
+
+  @media(min-width: 1440px) {
+    width: 612px;
+  }
+
+  @media(min-width: 1520px) {
+    width: 700px;
+  }
+`;
+
 export const Icon = styled.img`
   ${iconSize}
 `;
@@ -31,6 +44,7 @@ export const Container = styled.div`
   ${columnCenter}
   ${wrapperPadding}
   gap: 16px;
+  flex-wrap: nowrap;
 `;
 
 export const Title = styled.div`

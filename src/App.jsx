@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { firebaseConfig } from './firebase_config';
 import Link from './Link/link';
-import { Main, Header } from './app.style.module'
+import { Main, MainWrapper,   Header } from './app.style.module'
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -36,6 +36,7 @@ function App() {
         <h1>Meaning future</h1>
       </Header>
       <Main>
+        <MainWrapper>
         {links.map((link) =>
           <Link
             key={link.id}
@@ -46,6 +47,7 @@ function App() {
             bgImage={link.imageUrl}
           />
         )}
+        </MainWrapper>
         <div>
           <button onClick={() => setCount((count) => count + 1)}>
             There is {count} url for now 😎

@@ -1,10 +1,10 @@
 import './link.style.module.jsx'
-import { Icon, Container, Title, Description } from './link.style.module'
+import { Article, Icon, Container, Title, Description } from './link.style.module'
 
 const Link = ({ url, title, text, serviceIcon }) => {
   return (
-    <article>
-      <Container >
+    <Article>
+      <Container>
         <Title>
           <Icon src={serviceIcon} alt="service icon" srcSet="" />
           <a href={url}>{title}</a>
@@ -13,7 +13,7 @@ const Link = ({ url, title, text, serviceIcon }) => {
           <p>{text}</p>
         </Description>
       </Container>
-    </article>
+    </Article>
   );
 }
 

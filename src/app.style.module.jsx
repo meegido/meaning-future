@@ -19,6 +19,21 @@ export const Main = styled.div`
   ${fullContainerPadding}
 `;
 
+export const MainWrapper = styled.div`
+  display: flex;
+  flex-grow: 1; 
+  flex-wrap: wrap; 
+  gap: 24px;
+
+  @media(min-width: 1440px) {
+    gap: 54px;
+  }
+
+  @media(min-width: 1520px) {
+    gap: 72px;
+  }
+`;
+
 export const Header = styled.header`
   ${flexColumnWrapper}
   ${leftRightContainerPadding}
