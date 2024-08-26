@@ -8,6 +8,10 @@ const flexColumnWrapper = () => css`
 
 const fullContainerPadding = () => css`
     padding: var(--container-padding);
+
+    @media (min-width: 1440px) {
+      padding: 64px var(--container-padding)
+    }
 `;
 
 const leftRightContainerPadding = () => css`
@@ -21,9 +25,15 @@ export const Main = styled.div`
 
 export const MainWrapper = styled.div`
   display: flex;
-  flex-grow: 1; 
-  flex-wrap: wrap; 
-  gap: 24px;
+  flex-direction: column;
+
+  @media(min-width: 1200px) {
+    flex-direction: row;
+    flex-grow: 1; 
+    flex-wrap: wrap; 
+    gap: 24px;
+    gap: 54px;
+  }
 
   @media(min-width: 1440px) {
     gap: 54px;
@@ -38,9 +48,4 @@ export const Header = styled.header`
   ${flexColumnWrapper}
   ${leftRightContainerPadding}
   height: 90px;
-
-  h1 {
-    line-height: 40px;
-    margin: 0;
-  }
 `;

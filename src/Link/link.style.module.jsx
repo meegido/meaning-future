@@ -21,7 +21,11 @@ const noPadding = () => css`
 
 export const Article = styled.article`
   display: flex;
-  width: 508px;
+  
+
+   @media(min-width: 1200px) {
+    width: 492px;
+  }
 
   @media(min-width: 1440px) {
     width: 612px;
@@ -50,6 +54,11 @@ export const Container = styled.div`
 export const Title = styled.div`
   ${columnCenter}
   gap: 8px;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
 `;
 
 export const Description = styled.div`
