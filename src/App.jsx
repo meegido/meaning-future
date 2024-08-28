@@ -3,8 +3,8 @@ import './app.style.module.jsx';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { firebaseConfig } from './firebase_config';
-import Link from './Link/link';
-import { Main, MainWrapper,   Header } from './app.style.module'
+import { Link } from './Link/link';
+import { Main, MainWrapper, Header } from './app.style.module'
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -12,6 +12,7 @@ const db = getFirestore(app);
 function App() {
   const [count, setCount] = useState(0)
   const [links, setlinks] = useState([])
+  const [bgImage, setBgImage] = useState("")
 
   useEffect(() => {
     const getDocuments = async () => {
@@ -29,9 +30,22 @@ function App() {
   
     getDocuments()
   }, [])
+
+
+  const handleLinkHover = (image) => {
+    console.log(image, "image detro")
+    const newBgImage = image;
+    setBgImage(newBgImage)
+  }
   
   return (
-    <>
+    <div style={{ 
+          backgroundImage: `url(${bgImage})`, 
+          backgroundRepeat: 'no-repeat', 
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          mixBlendMode: 'multiply'
+        }}>
       <Header>
         <h1>Meaning future</h1>
       </Header>
@@ -44,7 +58,7 @@ function App() {
             url={link.url}
             title={link.title}
             text={link.text}
-            bgImage={link.imageUrl}
+            onHover={() => handleLinkHover(link.imageUrl)}
           />
         )}
         </MainWrapper>
@@ -54,7 +68,7 @@ function App() {
           </button>
         </div>
       </Main>
-    </>
+    </div>
   )
 }
 

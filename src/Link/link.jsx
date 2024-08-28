@@ -1,9 +1,9 @@
 import './link.style.module.jsx'
 import { Article, Icon, Container, Title, Description } from './link.style.module'
 
-const Link = ({ url, title, text, serviceIcon }) => {
+export const Link = ({ url, title, text, serviceIcon, onHover }) => {
   return (
-    <Article>
+    <Article onMouseEnter={onHover}>
       <Container>
         <Title>
           <Icon src={serviceIcon} alt="service icon" srcSet="" />
@@ -16,5 +16,3 @@ const Link = ({ url, title, text, serviceIcon }) => {
     </Article>
   );
 }
-
-export default Link
