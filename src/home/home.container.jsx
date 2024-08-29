@@ -21,8 +21,6 @@ export const HomeContainer = () => {
         return {id: doc.id, ...doc.data()}
       });
      
-      // console.log(links, "links")
-
       setlinks(links)
       setCount(links.length)
     }
@@ -31,41 +29,36 @@ export const HomeContainer = () => {
   }, [])
 
   const handleLinkHover = (image) => {
-    console.log(image, "image detro")
     const newBgImage = image;
     setBgImage(newBgImage)
   }
 
   return (
-    <div style={{ 
-      backgroundImage: `url(${bgImage})`, 
-      backgroundRepeat: 'no-repeat', 
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      mixBlendMode: 'multiply'
-    }}>
-  <header>
-    <h1>Meaning future</h1>
-  </header>
-  <main>
-    <div className={styles.wrapper}>
-    {links.map((link) =>
-      <LinkComponent 
-        key={link.id}
-        serviceIcon={link.serviceIcon}
-        url={link.url}
-        title={link.title}
-        text={link.text}
-        onHover={() => handleLinkHover(link.imageUrl)}
-      />
-    )}
-    </div>
-    <div>
-      <button onClick={() => setCount((count) => count + 1)}>
-        There is {count} url for now 😎
-      </button>
-    </div>
-  </main>
-</div>
+    <>
+    <main
+      style={ 
+      bgImage ? { backgroundImage:`url(${bgImage})`} : {}
+    }
+    className={styles['bg-image']}>
+      <section className={styles.wrapper}>
+        {links.map((link) =>
+          <LinkComponent 
+            key={link.id}
+            serviceIcon={link.serviceIcon}
+            url={link.url}
+            title={link.title}
+            text={link.text}
+            onHover={() => handleLinkHover(link.imageUrl)}
+          />
+      )}
+      </section>
+      <div>
+        <button onClick={() => setCount((count) => count + 1)}>
+          There is {count} url for now 😎
+        </button>
+      </div>
+    </main>
+ 
+    </>
   )
 }

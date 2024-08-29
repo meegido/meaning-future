@@ -1,4 +1,16 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  padding: 106px var(--container-padding);
+  position: relative;
+}
+
+.bg-image {
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  position: absolute;
+  padding: 0;
+  top: 0;
 }
