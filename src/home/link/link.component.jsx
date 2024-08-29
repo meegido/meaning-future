@@ -4,10 +4,10 @@ export const LinkComponent = ({ url, title, text, serviceIcon, onHover }) => {
   return (
     <article className={styles.article}>
       <div>
-        <h3 onMouseEnter={onHover}>
+        <div onMouseEnter={onHover}>
           <img src={serviceIcon} alt="service icon" srcSet="" />
           <a href={url}>{title}</a>
-        </h3>
+        </div>
         <div>
           <p>{text}</p>
         </div>

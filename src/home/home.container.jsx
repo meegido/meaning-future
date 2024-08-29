@@ -37,7 +37,7 @@ export const HomeContainer = () => {
     <>
     <main
       style={ 
-      bgImage ? { backgroundImage:`url(${bgImage})`} : {}
+      bgImage ? { backgroundImage: `url(${bgImage})`} : {}
     }
     className={styles['bg-image']}>
       <section className={styles.wrapper}>

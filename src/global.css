@@ -166,7 +166,8 @@ a {
   letter-spacing: -0.187px; 
 }
 
-p {
+p, 
+h3 {
   font-family: 'AppleSD Regular';
 }
 
