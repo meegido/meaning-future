@@ -1,3 +1,14 @@
 .article {
   background-color: transparent;
 }
+
+.social__icon {
+  width: 26px;
+  height: 26px;
+}
+
+.title__wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

@@ -33,8 +33,13 @@ export const HomeContainer = () => {
     setBgImage(newBgImage)
   }
 
+  const handleLinkOnLeave = (image) => {
+    if(image !== undefined) {
+      setBgImage("")
+    }
+  }
+
   return (
-    <>
     <main
       style={ 
       bgImage ? { backgroundImage: `url(${bgImage})`} : {}
@@ -49,6 +54,7 @@ export const HomeContainer = () => {
             title={link.title}
             text={link.text}
             onHover={() => handleLinkHover(link.imageUrl)}
+            onLeave={handleLinkOnLeave}
           />
       )}
       </section>
@@ -58,7 +64,5 @@ export const HomeContainer = () => {
         </button>
       </div>
     </main>
- 
-    </>
   )
 }
