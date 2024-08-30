@@ -16,3 +16,8 @@
   top: 0;
   transition: '.5s ease';
 }
+
+@keyframes fadeBackground {
+  from { background-color: #FCE97F; }
+  to { background-color: #2EB07B; }
+}

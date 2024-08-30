@@ -28,7 +28,6 @@
   color: var(--black);
   background-color: var(--white);
 
-  --accent-blue: #50ACF3;
   --white: rgba(234, 247, 246, 0.1);
   --black: #2D2D2C;
 
@@ -164,6 +163,10 @@ a {
   font-family: 'AppleSD Bold';
   text-underline-offset: 4px;
   letter-spacing: -0.187px; 
+}
+
+a:hover {
+  color: var(--black);
 }
 
 p, 

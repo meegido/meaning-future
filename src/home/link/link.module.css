@@ -10,8 +10,10 @@ article {
 }
 
 .article__wrapper:hover {
-  background-color: rgba(255, 255, 255, 0.374);
+  background-color: rgba(255, 255, 255, 0.574);
+  box-shadow: 0px 2px 19px 0px rgba(36,35,36,0.94);
   border-radius: 4px;
+  transition: .5s, transform .5s;
 }
 
 .social__icon {
