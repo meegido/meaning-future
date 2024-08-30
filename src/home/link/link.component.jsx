@@ -2,8 +2,9 @@ import styles from './link.module.css'
 
 export const LinkComponent = ({ url, title, text, serviceIcon, onHover, onLeave }) => {
   return (
+    <>
     <article className={styles.article}>
-      <div>
+      <div className={styles['article__wrapper']}>
         <div 
           onMouseEnter={onHover}
           onMouseLeave={onLeave}
@@ -17,5 +18,7 @@ export const LinkComponent = ({ url, title, text, serviceIcon, onHover, onLeave 
         </div>
       </div>
     </article>
+    {/* <img src="../../assets/images/meaning-future-gb-4.png" alt="" /> */}
+    </>
   );
 }

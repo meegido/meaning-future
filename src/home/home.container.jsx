@@ -4,6 +4,7 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { firebaseConfig } from '../firebase_config.js';
 import styles from './home.module.css';
 import { LinkComponent } from './link/link.component.jsx';
+import defaultBgImages from '../images-data/bg-images.js'
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -31,6 +32,11 @@ export const HomeContainer = () => {
   const handleLinkHover = (image) => {
     const newBgImage = image;
     setBgImage(newBgImage)
+
+    if(image === undefined) {
+      var randomNumber = Math.floor(Math.random() * 4);
+      setBgImage(defaultBgImages[randomNumber])
+    }
   }
 
   const handleLinkOnLeave = (image) => {
@@ -41,10 +47,12 @@ export const HomeContainer = () => {
 
   return (
     <main
-      style={ 
-      bgImage ? { backgroundImage: `url(${bgImage})`} : {}
-    }
-    className={styles['bg-image']}>
+      style={ bgImage ? { 
+        backgroundImage: `url(${bgImage})`, 
+        backgroundColor: 'rgba(0, 0, 0, 0.2)'
+      } : {} }
+      className={styles['bg-image']}
+    >
       <section className={styles.wrapper}>
         {links.map((link) =>
           <LinkComponent 
@@ -56,7 +64,7 @@ export const HomeContainer = () => {
             onHover={() => handleLinkHover(link.imageUrl)}
             onLeave={handleLinkOnLeave}
           />
-      )}
+        )}
       </section>
       <div>
         <button onClick={() => setCount((count) => count + 1)}>
