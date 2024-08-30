@@ -1,6 +1,6 @@
 import styles from './link.module.css'
 
-export const LinkComponent = ({ url, title, text, serviceIcon, onHover, onLeave }) => {
+export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }) => {
   return (
     <>
     <article className={styles.article}>

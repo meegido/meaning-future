@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firebaseConfig } from '../firebase_config.js';
-import styles from './home.module.css';
-import { LinkComponent } from './link/link.component.jsx';
-import defaultBgImages from '../images-data/bg-images.js'
+import { firebaseConfig } from '../../firebase_config.js';
+import styles from './feed.module.css';
+import { Link } from '../components/link';
+import defaultBgImages from '../../images-data/bg-images.js'
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const HomeContainer = () => {
+export const Feed = () => {
   const [count, setCount] = useState(0);
   const [links, setlinks] = useState([]);
   const [bgImage, setBgImage] = useState("");
@@ -30,13 +30,13 @@ export const HomeContainer = () => {
   }, [])
 
   const handleLinkHover = (image) => {
+    if(image === undefined) {
+      const randomNumber = Math.floor(Math.random() * 4);
+      setBgImage(defaultBgImages[randomNumber]);
+      return
+    }
     const newBgImage = image;
     setBgImage(newBgImage);
-
-    if(image === undefined) {
-      var randomNumber = Math.floor(Math.random() * 4);
-      setBgImage(defaultBgImages[randomNumber]);
-    }
   }
 
   const handleLinkOnLeave = (image) => {
@@ -55,7 +55,7 @@ export const HomeContainer = () => {
     >
       <section className={styles.wrapper}>
         {links.map((link) =>
-          <LinkComponent 
+          <Link 
             key={link.id}
             serviceIcon={link.serviceIcon}
             url={link.url}
