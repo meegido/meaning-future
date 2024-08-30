@@ -1,5 +1,23 @@
+@font-face{
+  font-family: "Pilowlava";
+  src:local("Pilowlava-Atome"),
+  url('./assets/fonts/Pilowlava-Atome.woff') 
+}
+
+@font-face{
+  font-family: "AppleSD Regular";
+  src:local("AppleSDGothicNeoRegular"),
+  url('./assets/fonts/AppleSDGothicNeoRegular.ttf') 
+}
+
+@font-face{
+  font-family: "AppleSD Bold";
+  src:local("AppleSDGothicNeoBold"),
+  url('./assets/fonts/AppleSDGothicNeoBold.ttf') 
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'AppleSD Regular', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-size: 16px;
@@ -94,24 +112,6 @@
     --container-width: 1552px;
     --container-padding: 420px;
   }
-}
-
-@font-face{
-  font-family: "Pilowlava";
-  src:local("Pilowlava-Atome"),
-  url('./assets/fonts/Pilowlava-Atome.woff') 
-}
-
-@font-face{
-  font-family: "AppleSD Regular";
-  src:local("AppleSDGothicNeoRegular"),
-  url('./assets/fonts/AppleSDGothicNeoRegular.ttf') 
-}
-
-@font-face{
-  font-family: "AppleSD Bold";
-  src:local("AppleSDGothicNeoBold"),
-  url('./assets/fonts/AppleSDGothicNeoBold.ttf') 
 }
 
 body {

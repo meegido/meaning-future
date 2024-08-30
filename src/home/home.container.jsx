@@ -10,9 +10,9 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const HomeContainer = () => {
-  const [count, setCount] = useState(0)
-  const [links, setlinks] = useState([])
-  const [bgImage, setBgImage] = useState("")
+  const [count, setCount] = useState(0);
+  const [links, setlinks] = useState([]);
+  const [bgImage, setBgImage] = useState("");
 
   useEffect(() => {
     const getDocuments = async () => {
@@ -22,26 +22,26 @@ export const HomeContainer = () => {
         return {id: doc.id, ...doc.data()}
       });
      
-      setlinks(links)
-      setCount(links.length)
+      setlinks(links);
+      setCount(links.length);
     }
   
-    getDocuments()
+    getDocuments();
   }, [])
 
   const handleLinkHover = (image) => {
     const newBgImage = image;
-    setBgImage(newBgImage)
+    setBgImage(newBgImage);
 
     if(image === undefined) {
       var randomNumber = Math.floor(Math.random() * 4);
-      setBgImage(defaultBgImages[randomNumber])
+      setBgImage(defaultBgImages[randomNumber]);
     }
   }
 
   const handleLinkOnLeave = (image) => {
     if(image !== undefined) {
-      setBgImage("")
+      setBgImage("");
     }
   }
 

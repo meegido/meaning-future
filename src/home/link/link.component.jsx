@@ -18,7 +18,6 @@ export const LinkComponent = ({ url, title, text, serviceIcon, onHover, onLeave 
         </div>
       </div>
     </article>
-    {/* <img src="../../assets/images/meaning-future-gb-4.png" alt="" /> */}
     </>
   );
 }

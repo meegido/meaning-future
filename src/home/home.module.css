@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 132px var(--container-padding);
   position: relative;
+  gap: 16px;
 }
 
 .bg-image {
