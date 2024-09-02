@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from './home/components/header';
+import { Header } from './shared/components/header';
 import { Home } from './home/page';
 
 // header, footer and main
