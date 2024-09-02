@@ -5,9 +5,9 @@ import { firebaseConfig } from '../../firebase_config.js';
 import styles from './feed.module.css';
 import { Link } from '../components/link';
 import defaultBgImages from '../../images-data/bg-images.js'
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
 
 export const Feed = () => {
   const [count, setCount] = useState(0);
@@ -29,7 +29,7 @@ export const Feed = () => {
     getDocuments();
   }, [])
 
-  const handleLinkHover = (image) => {
+  const handleLinkHover = (image:string) => {
     if(image === undefined) {
       const randomNumber = Math.floor(Math.random() * 4);
       setBgImage(defaultBgImages[randomNumber]);
@@ -39,7 +39,7 @@ export const Feed = () => {
     setBgImage(newBgImage);
   }
 
-  const handleLinkOnLeave = (image) => {
+  const handleLinkOnLeave = (image:string) => {
     if(image !== undefined) {
       setBgImage("");
     }

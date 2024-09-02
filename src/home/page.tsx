@@ -1,5 +1,5 @@
 import { Feed } from "./containers/feed"
 
-export const Home = () => (
+export const Home: React.FC = () => (
   <Feed />
 )

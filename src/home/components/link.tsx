@@ -1,6 +1,16 @@
+import { MouseEventHandler } from 'react';
 import styles from './link.module.css'
 
-export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }) => {
+interface Props {
+  url: string;
+  title: string;
+  text: string;
+  serviceIcon: string;
+  onHover: MouseEventHandler<HTMLDivElement>;
+  onLeave: MouseEventHandler<HTMLDivElement>;
+}
+
+export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }: Props) => {
   return (
     <>
     <article className={styles.article}>
