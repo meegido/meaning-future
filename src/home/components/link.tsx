@@ -14,7 +14,7 @@ export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }: Props)
   return (
     <>
     <article className={styles.article}>
-      <div 
+      <div
         className={styles['article__wrapper']}
         onMouseEnter={onHover}
         onMouseLeave={onLeave}>
