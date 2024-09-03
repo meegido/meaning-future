@@ -13,19 +13,21 @@ import './global.css';
 import * as Sentry from '@sentry/react';
 import React from 'react';
 
-Sentry.init({
-  dsn: 'https://6dc13e3a21259cffcea6d636e268ff97@o4507889958125568.ingest.de.sentry.io/4507889971691600',
-  integrations: [
-    Sentry.reactRouterV6BrowserTracingIntegration({
-      useEffect: React.useEffect,
-      useLocation,
-      useNavigationType,
-      createRoutesFromChildren,
-      matchRoutes,
-    }),
-  ],
-  tracesSampleRate: 1.0,
-});
+if (import.meta.env.MODE === 'Production') {
+  Sentry.init({
+    dsn: 'https://6dc13e3a21259cffcea6d636e268ff97@o4507889958125568.ingest.de.sentry.io/4507889971691600',
+    integrations: [
+      Sentry.reactRouterV6BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes,
+      }),
+    ],
+    tracesSampleRate: 1.0,
+  });
+}
 
 const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRouter);
 
