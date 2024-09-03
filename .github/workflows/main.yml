@@ -43,11 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: checkout_code
     steps:
-     - name: download code artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: code
-        path: ./meaning-future
+      - name: download code artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: code
+          path: ./meaning-future
 
       - name: install dependencies
         run: npm install
