@@ -26,5 +26,4 @@ jobs:
       - name: run Prettier
         run: npm run format
 
-      run: echo "🍏 This job's status is ${{ job.status }}."
-
+      - run: echo "🍏 This job's status is ${{ job.status }}."
