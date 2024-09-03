@@ -19,9 +19,7 @@ jobs:
         run: npm run format
   test: 
     runs-on: ubuntu-lates
-    needs:
-      - checkout
-      - checkout_node
+    needs: [ checkout, checkout_node ]
     steps:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
