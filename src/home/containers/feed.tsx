@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firebaseConfig } from '../../firebase_config.js';
+import { firebaseConfig } from '../../firebase-config.ts';
 import styles from './feed.module.css';
 import { Link } from '../components/link';
-import defaultBgImages from '../../images-data/bg-images.js';
+import defaultBgImages from '../../images-data/bg-images.ts';
 import { LinkInfo } from '../components/link.types.js';
+import { DocumentData } from 'firebase/firestore/lite';
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -18,7 +20,7 @@ export const Feed = () => {
     const getDocuments = async () => {
       const linkCollection = collection(db, 'links');
       const linkDocuments = await getDocs(linkCollection);
-      const links = linkDocuments.docs.map((doc) => {
+      const links = linkDocuments.docs.map<LinkInfo>((doc: DocumentData) => {
         return { id: doc.id, ...doc.data() };
       });
 
