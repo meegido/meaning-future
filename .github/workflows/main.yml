@@ -35,9 +35,11 @@ jobs:
 
       - name: run ESLint 
         run: npm run lint
+        working-directory: ./meaning-future
 
       - name: run Prettier
         run: npm run format
+        working-directory: ./meaning-future
 
   test:
     runs-on: ubuntu-latest
