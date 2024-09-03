@@ -8,4 +8,14 @@ export default defineConfig({
     globals: true,
     setupFiles: './src/tests/setup.ts',
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: 'src/main.tsx',
+      },
+      external: (id: string) => {
+        return /.*\.test\.(js|ts)$/.test(id) || /tests/.test(id);
+      },
+    },
+  },
 });
