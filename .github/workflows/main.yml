@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
-      - name: checkout_node.js
+      - name: checkout_node
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
@@ -20,8 +20,8 @@ jobs:
   test: 
     runs-on: ubuntu-lates
     needs:
-    - checkout
-    - checkout_node.js
+      - checkout
+      - checkout_node
     steps:
       - run: echo "🍏 This job's status is ${{ job.status }}."
 
