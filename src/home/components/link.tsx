@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import styles from './link.module.css'
+import styles from './link.module.css';
 
 interface Props {
   url: string;
@@ -13,20 +13,22 @@ interface Props {
 export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }: Props) => {
   return (
     <>
-    <article className={styles.article}>
-      <div
-        className={styles['article__wrapper']}
-        onMouseEnter={onHover}
-        onMouseLeave={onLeave}>
-        <div className={styles['title__wrapper']}>
-          <img className={styles['social__icon']} src={serviceIcon} alt="service icon" srcSet="" />
-          <a href={url}>{title}</a>
+      <article className={styles.article}>
+        <div className={styles['article__wrapper']} onMouseEnter={onHover} onMouseLeave={onLeave}>
+          <div className={styles['title__wrapper']}>
+            <img
+              className={styles['social__icon']}
+              src={serviceIcon}
+              alt="service icon"
+              srcSet=""
+            />
+            <a href={url}>{title}</a>
+          </div>
+          <div>
+            <p>{text}</p>
+          </div>
         </div>
-        <div>
-          <p>{text}</p>
-        </div>
-      </div>
-    </article>
+      </article>
     </>
   );
-}
+};

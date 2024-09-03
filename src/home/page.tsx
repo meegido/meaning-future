@@ -1,5 +1,3 @@
-import { Feed } from "./containers/feed"
+import { Feed } from './containers/feed';
 
-export const Home: React.FC = () => (
-  <Feed />
-)
+export const Home: React.FC = () => <Feed />;

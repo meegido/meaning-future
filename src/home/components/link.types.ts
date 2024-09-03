@@ -6,5 +6,5 @@ export interface Link {
 }
 
 export type Links = {
-  Link: []
-}
+  Link: [];
+};

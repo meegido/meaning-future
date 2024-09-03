@@ -1,10 +1,10 @@
-import linkedinIcon from '../assets/images/linkedin.svg'
+import linkedinIcon from '../assets/images/linkedin.svg';
 
 const serviceIcons = {
   linkedin: {
     name: 'linkedin',
-    icon: linkedinIcon
-  }
-}
+    icon: linkedinIcon,
+  },
+};
 
-export default serviceIcons
+export default serviceIcons;

@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "prettier --no-error-on-unmatched-pattern --config ./.prettierrc --write \"**/*.{ts,yml,yaml}\"",
-    "format-check": "prettier --no-error-on-unmatched-pattern --config ./.prettierrc.js --check \"**/*.{ts,yml,yaml}\"",
-    "lint": "eslint --config ./.eslint.config.js \"**/*.ts\"",
-    "lint:fix": "eslint --config ./.eslint.config.js \"**/*.ts\" --fix",
+    "format": "prettier --config ./.prettierrc --write \"**/*.{ts,yml,yaml}\"",
+    "format-check": "prettier --config ./.prettierrc --check \"**/*.{ts,yml,yaml}\"",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "lint:fix": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\" --fix",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "@typescript-eslint/parser": "^8.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
