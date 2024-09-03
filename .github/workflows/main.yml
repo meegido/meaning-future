@@ -4,15 +4,24 @@ on: [push]
 jobs:
   lint-and-format:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-          with:
-            node-version: 20
+      
+      - name: Set up Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v4
+            with:
+              node-version: ${{ matrix.node-version }}
+              cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
+        
       - name: Run ESLint
         run: npm run lint
+
       - name: Run Prettier
         run: npm run format
