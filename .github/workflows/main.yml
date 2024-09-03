@@ -18,8 +18,8 @@ jobs:
       - name: Run ESLint
         run: npm run lint
 
-    - name: Run Prettier
-      run: npm run format
+      - name: Run Prettier
+        run: npm run format
   test: 
     needs: checkout_code
     steps:
