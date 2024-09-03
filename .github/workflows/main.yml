@@ -1,8 +1,8 @@
-name: linter
+name: Run CI
 run-name: ${{ github.actor }} is running GitHub Actions 🚀
 on: [push]
 jobs:
-  checkout_code:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
