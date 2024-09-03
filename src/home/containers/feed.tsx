@@ -5,12 +5,13 @@ import { firebaseConfig } from '../../firebase_config.js';
 import styles from './feed.module.css';
 import { Link } from '../components/link';
 import defaultBgImages from '../../images-data/bg-images.js';
+import { LinkInfo } from '../components/link.types.js';
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const Feed = () => {
   const [count, setCount] = useState(0);
-  const [links, setlinks] = useState([]);
+  const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
 
   useEffect(() => {
@@ -54,7 +55,8 @@ export const Feed = () => {
             }
           : {}
       }
-      className={styles['bg-image']}>
+      className={styles['bg-image']}
+    >
       <section className={styles.wrapper}>
         {links.map((link) => (
           <Link
@@ -64,7 +66,7 @@ export const Feed = () => {
             title={link.title}
             text={link.text}
             onHover={() => handleLinkHover(link.imageUrl)}
-            onLeave={handleLinkOnLeave}
+            onLeave={() => handleLinkOnLeave(link.imageUrl)}
           />
         ))}
       </section>

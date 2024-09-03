@@ -1,10 +1,8 @@
-export interface Link {
+export type LinkInfo = {
+  id: string;
   url: string;
   title: string;
   text: string;
   serviceIcon: string;
-}
-
-export type Links = {
-  Link: [];
+  imageUrl: string;
 };

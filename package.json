@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "format": "prettier --config ./.prettierrc --write \"**/*.{ts,yml,yaml}\"",
-    "format-check": "prettier --config ./.prettierrc --check \"**/*.{ts,yml,yaml}\"",
+    "format": "prettier --check \"**/*.{ts,yml,yaml}\"",
+    "format:fix": "prettier  --write \"**/*.{ts,yml,yaml}\"",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "lint:fix": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\" --fix",
     "preview": "vite preview"
