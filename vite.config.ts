@@ -10,9 +10,6 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: {
-        main: 'src/main.tsx',
-      },
       external: (id: string) => {
         return /.*\.test\.(js|ts)$/.test(id) || /tests/.test(id);
       },
