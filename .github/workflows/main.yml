@@ -13,10 +13,6 @@ jobs:
         with:
           node-version: '20.x'
 
-  lint_and_format:
-    runs-on: ubuntu-latest
-    needs: checkout_code
-    steps: 
       - name: install dependencies
         run: npm install
 
@@ -26,4 +22,5 @@ jobs:
       - name: run Prettier
         run: npm run format
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: test
+        run: echo "🍏 This job's status is ${{ job.status }}."
