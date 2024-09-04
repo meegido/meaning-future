@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { App } from './app.tsx';
 import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { Feed } from './home/containers/feed';
 
 beforeEach(() => {
   vi.resetAllMocks();
