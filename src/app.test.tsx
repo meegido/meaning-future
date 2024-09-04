@@ -79,7 +79,7 @@ describe('When the page loads', () => {
     screen.debug();
   });
 
-  test('renders the list of links from the Feed component', () => {
+  test('renders the list of links from the Feed', () => {
     render(<App />);
 
     const firstLink = screen.getByRole('link', {
