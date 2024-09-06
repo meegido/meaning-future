@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Home } from './home/page';
 import { describe, expect, test } from 'vitest';
-import { Feed } from './home/containers/feed';
 import { Header } from './shared/components/header';
 
 describe('When the page loads', () => {
