@@ -8,10 +8,11 @@ import {
   useLocation,
   useNavigationType,
 } from 'react-router-dom';
-import { App } from './app';
 import './global.css';
 import * as Sentry from '@sentry/react';
 import React from 'react';
+import { Header } from './shared/components/header';
+import { Home } from './home/page';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -34,12 +35,13 @@ const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRo
 const router = sentryCreateBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Home />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
+    <Header />
     <RouterProvider router={router} />
   </StrictMode>
 );
