@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firebaseConfig } from '../../firebase-config.ts';
+import { firebaseConfig } from '../firebase-config.ts';
 import styles from './feed.module.css';
-import LinkPreview from '../components/link-preview.tsx';
-import defaultBgImages from '../../images-data/bg-images.ts';
-import { LinkInfo } from '../components/link.types.js';
+import LinkPreview from './components/link-preview.tsx';
+import defaultBgImages from '../images-data/bg-images.ts';
+import { LinkInfo } from './components/link.types.js';
 import { DocumentData } from 'firebase/firestore/lite';
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const Feed = () => {
-  const [count, setCount] = useState(0);
   const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
 
@@ -25,7 +24,6 @@ export const Feed = () => {
       });
 
       setlinks(links);
-      setCount(links.length);
     };
 
     getDocuments();

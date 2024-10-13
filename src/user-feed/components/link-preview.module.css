@@ -1,0 +1,28 @@
+.article__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+article {
+  background-color: transparent;
+}
+
+.article__wrapper:hover {
+  background-color: rgba(255, 255, 255, 0.574);
+  box-shadow: 0px 2px 19px 0px rgba(36,35,36,0.94);
+  border-radius: 4px;
+  transition: .5s, transform .5s;
+}
+
+.social__icon {
+  width: 26px;
+  height: 26px;
+}
+
+.title__wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

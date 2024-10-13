@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Home } from './home/page';
+import { Home } from './feed/page';
 import { describe, expect, test } from 'vitest';
 import { Header } from './shared/components/header';
 

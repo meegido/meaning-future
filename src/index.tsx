@@ -12,7 +12,8 @@ import './global.css';
 import * as Sentry from '@sentry/react';
 import React from 'react';
 import { Header } from './shared/components/header';
-import { Home } from './home/page';
+import { Feed } from './feed/feed';
+import { UserFeed } from './user-feed/user-feed';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -35,7 +36,11 @@ const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRo
 const router = sentryCreateBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Feed />,
+  },
+  {
+    path: '/:user',
+    element: <UserFeed />,
   },
 ]);
 
