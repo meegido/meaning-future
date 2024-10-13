@@ -1,31 +1,15 @@
 import { useEffect, useState } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firebaseConfig } from '../firebase-config.ts';
 import styles from './user-feed.module.css';
-import { DocumentData } from 'firebase/firestore/lite';
 import defaultBgImages from '../images-data/bg-images.ts';
 import LinkPreview from './components/link-preview.tsx';
-import { LinkInfo } from './components/link.types.ts';
 import { useParams } from 'react-router-dom';
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { getUserDocuments } from '../shared/infrastructure/firestore-client.tsx';
+import { LinkInfo } from '../types.ts';
 
 export const UserFeed = () => {
   const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
   const { user } = useParams();
-
-  const getUserDocuments = async (user: string) => {
-    const linkCollection = collection(db, 'links');
-    const linkDocuments = await getDocs(linkCollection);
-    return linkDocuments.docs
-      .map<LinkInfo>((doc: DocumentData) => {
-        return { id: doc.id, ...doc.data() };
-      })
-      .filter((linkInfo: LinkInfo) => linkInfo.userName === user);
-  };
 
   useEffect(() => {
     (async () => {

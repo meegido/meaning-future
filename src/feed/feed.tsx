@@ -1,27 +1,13 @@
 import { useEffect, useState } from 'react';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import { firebaseConfig } from '../firebase-config.ts';
 import styles from './feed.module.css';
 import LinkPreview from './components/link-preview.tsx';
 import defaultBgImages from '../images-data/bg-images.ts';
-import { LinkInfo } from './components/link.types.js';
-import { DocumentData } from 'firebase/firestore/lite';
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { getDocuments } from '../shared/infrastructure/firestore-client.js';
+import { LinkInfo } from '../types.ts';
 
 export const Feed = () => {
   const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
-
-  const getDocuments = async () => {
-    const linkCollection = collection(db, 'links');
-    const linkDocuments = await getDocs(linkCollection);
-    return linkDocuments.docs.map<LinkInfo>((doc: DocumentData) => {
-      return { id: doc.id, ...doc.data() };
-    });
-  };
 
   useEffect(() => {
     (async () => {
