@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import styles from './link.module.css';
+import styles from './link-preview.module.css';
 
 interface Props {
   url: string;
@@ -10,7 +10,7 @@ interface Props {
   onLeave: MouseEventHandler<HTMLDivElement>;
 }
 
-export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }: Props) => {
+const LinkPreview = ({ url, title, text, serviceIcon, onHover, onLeave }: Props) => {
   return (
     <>
       <article className={styles.article}>
@@ -32,3 +32,5 @@ export const Link = ({ url, title, text, serviceIcon, onHover, onLeave }: Props)
     </>
   );
 };
+
+export default LinkPreview;

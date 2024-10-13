@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { firebaseConfig } from '../../firebase-config.ts';
 import styles from './feed.module.css';
-import { Link } from '../components/link';
+import LinkPreview from '../components/link-preview.tsx';
 import defaultBgImages from '../../images-data/bg-images.ts';
 import { LinkInfo } from '../components/link.types.js';
 import { DocumentData } from 'firebase/firestore/lite';
@@ -61,7 +61,7 @@ export const Feed = () => {
     >
       <section className={styles.wrapper}>
         {links.map((link) => (
-          <Link
+          <LinkPreview
             key={link.id}
             serviceIcon={link.serviceIcon}
             url={link.url}
@@ -72,11 +72,6 @@ export const Feed = () => {
           />
         ))}
       </section>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          There is {count} url for now 😎
-        </button>
-      </div>
     </main>
   );
 };
