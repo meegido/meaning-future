@@ -28,10 +28,8 @@ export const UserFeed = () => {
     setBgImage(newBgImage);
   };
 
-  const handleLinkOnLeave = (image: string) => {
-    if (image !== undefined) {
-      setBgImage('');
-    }
+  const handleLinkOnLeave = () => {
+    setBgImage('');
   };
 
   return (

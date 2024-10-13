@@ -26,10 +26,8 @@ export const Feed = () => {
     setBgImage(newBgImage);
   };
 
-  const handleLinkOnLeave = (image: string) => {
-    if (image !== undefined) {
-      setBgImage('');
-    }
+  const handleLinkOnLeave = () => {
+    setBgImage('');
   };
 
   return (
