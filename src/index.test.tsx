@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
-import { Home } from './feed/page';
 import { describe, expect, test } from 'vitest';
 import { Header } from './shared/components/header';
+import { Feed } from './feed/feed';
 
 describe('When the page loads', () => {
   test('renders the Home component', () => {
-    render(<Home />);
+    render(<Feed />);
 
     screen.debug();
   });
