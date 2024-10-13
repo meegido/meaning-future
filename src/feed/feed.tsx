@@ -15,18 +15,19 @@ export const Feed = () => {
   const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
 
+  const getDocuments = async () => {
+    const linkCollection = collection(db, 'links');
+    const linkDocuments = await getDocs(linkCollection);
+    return linkDocuments.docs.map<LinkInfo>((doc: DocumentData) => {
+      return { id: doc.id, ...doc.data() };
+    });
+  };
+
   useEffect(() => {
-    const getDocuments = async () => {
-      const linkCollection = collection(db, 'links');
-      const linkDocuments = await getDocs(linkCollection);
-      const links = linkDocuments.docs.map<LinkInfo>((doc: DocumentData) => {
-        return { id: doc.id, ...doc.data() };
-      });
-
+    (async () => {
+      const links = await getDocuments();
       setlinks(links);
-    };
-
-    getDocuments();
+    })();
   }, []);
 
   const handleLinkHover = (image: string) => {

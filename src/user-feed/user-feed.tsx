@@ -28,12 +28,10 @@ export const UserFeed = () => {
   };
 
   useEffect(() => {
-    const getDocuments = async () => {
+    (async () => {
       const userLinks = await getUserDocuments(user!);
       setlinks(userLinks);
-    };
-
-    getDocuments();
+    })();
   }, [user]);
 
   const handleLinkHover = (image: string) => {
