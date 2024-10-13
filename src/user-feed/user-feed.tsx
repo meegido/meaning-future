@@ -17,19 +17,20 @@ export const UserFeed = () => {
   const [bgImage, setBgImage] = useState('');
   const { user } = useParams();
 
+  const getUserDocuments = async (user: string) => {
+    const linkCollection = collection(db, 'links');
+    const linkDocuments = await getDocs(linkCollection);
+    return linkDocuments.docs
+      .map<LinkInfo>((doc: DocumentData) => {
+        return { id: doc.id, ...doc.data() };
+      })
+      .filter((linkInfo: LinkInfo) => linkInfo.userName === user);
+  };
+
   useEffect(() => {
-    console.log(user);
-
     const getDocuments = async () => {
-      const linkCollection = collection(db, 'links');
-      const linkDocuments = await getDocs(linkCollection);
-      const links = linkDocuments.docs
-        .map<LinkInfo>((doc: DocumentData) => {
-          return { id: doc.id, ...doc.data() };
-        })
-        .filter((linkInfo: LinkInfo) => linkInfo.userName === user);
-
-      setlinks(links);
+      const userLinks = await getUserDocuments(user!);
+      setlinks(userLinks);
     };
 
     getDocuments();
