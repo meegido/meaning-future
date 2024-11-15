@@ -14,7 +14,11 @@ const LinkPreview = ({ url, title, text, serviceIcon, onHover, onLeave }: Props)
   return (
     <>
       <article className={styles.article}>
-        <div className={styles['article__wrapper']} onMouseEnter={onHover} onMouseLeave={onLeave}>
+        <section
+          className={styles['article__wrapper']}
+          onMouseEnter={onHover}
+          onMouseLeave={onLeave}
+        >
           <div className={styles['title__wrapper']}>
             <img
               className={styles['social__icon']}
@@ -27,7 +31,10 @@ const LinkPreview = ({ url, title, text, serviceIcon, onHover, onLeave }: Props)
           <div>
             <p>{text}</p>
           </div>
-        </div>
+          <div className={styles.view__detail}>
+            <a href="">View link detail</a>
+          </div>
+        </section>
       </article>
     </>
   );

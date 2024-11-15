@@ -37,6 +37,7 @@ export const Feed = () => {
           ? {
               backgroundImage: `url(${bgImage})`,
               boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, 0.3)',
+              backgroundColor: '#0e0e0ea6',
             }
           : {}
       }
@@ -51,7 +52,7 @@ export const Feed = () => {
             title={link.title}
             text={link.text}
             onHover={() => handleLinkHover(link.imageUrl)}
-            onLeave={() => handleLinkOnLeave(link.imageUrl)}
+            onLeave={() => handleLinkOnLeave()}
           />
         ))}
       </section>

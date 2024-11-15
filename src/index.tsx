@@ -14,6 +14,7 @@ import React from 'react';
 import { Header } from './shared/components/header';
 import { Feed } from './feed/feed';
 import { UserFeed } from './user-feed/user-feed';
+import { LinkDetail } from './link/link-detail';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -41,6 +42,10 @@ const router = sentryCreateBrowserRouter([
   {
     path: '/:user',
     element: <UserFeed />,
+  },
+  {
+    path: 'link/:id',
+    element: <LinkDetail />,
   },
 ]);
 

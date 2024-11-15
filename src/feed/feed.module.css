@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 132px var(--container-padding);
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .bg-image {
