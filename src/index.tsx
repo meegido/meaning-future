@@ -1,20 +1,19 @@
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   createRoutesFromChildren,
-  matchRoutes, Outlet,
+  matchRoutes,
   RouterProvider,
   useLocation,
   useNavigationType,
 } from 'react-router-dom';
 import './global.css';
 import * as Sentry from '@sentry/react';
-import React from 'react';
-import { Header } from './shared/components/header';
 import { Feed } from './feed/feed';
 import { UserFeed } from './user-feed/user-feed';
 import { LinkDetail } from './link/link-detail';
+import { Layout } from './Layout.tsx';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -33,13 +32,6 @@ if (import.meta.env.MODE !== 'development') {
 }
 
 const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRouter);
-
-const Layout = () => (
-  <>
-    <Header />
-    <Outlet />
-  </>
-);
 
 const router = sentryCreateBrowserRouter([
   {

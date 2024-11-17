@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 interface Props {
   id: string;
-  url: string;
   title: string;
   text: string;
   serviceIcon: string;
@@ -12,7 +11,7 @@ interface Props {
   onLeave: MouseEventHandler<HTMLDivElement>;
 }
 
-const LinkPreview = ({ id, url, title, text, serviceIcon, onHover, onLeave }: Props) => {
+const LinkPreview = ({ id, title, text, serviceIcon, onHover, onLeave }: Props) => {
   return (
     <>
       <article className={styles.article}>

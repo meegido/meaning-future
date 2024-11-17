@@ -4,12 +4,10 @@ import LinkPreview from '../shared/components/link-preview.tsx';
 import defaultBgImages from '../images-data/bg-images.ts';
 import { getDocuments } from '../shared/infrastructure/firestore-client.js';
 import { LinkInfo } from '../types.ts';
-import { useParams } from 'react-router-dom';
 
 export const Feed = () => {
   const [links, setlinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
-  const { id } = useParams();
 
   useEffect(() => {
     (async () => {
@@ -51,7 +49,6 @@ export const Feed = () => {
             id={link.id!}
             key={link.id}
             serviceIcon={link.serviceIcon}
-            url={link.url}
             title={link.title}
             text={link.text}
             onHover={() => handleLinkHover(link.imageUrl)}

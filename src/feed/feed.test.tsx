@@ -1,7 +1,6 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Feed } from './feed';
-import { userEvent } from '@testing-library/user-event';
 import { getDocuments } from '../shared/infrastructure/firestore-client.tsx';
 import { MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
@@ -9,7 +8,7 @@ import { createMemoryHistory } from 'history';
 vi.mock('../shared/infrastructure/firestore-client', () => ({
   getDocuments: vi.fn(),
 }));
-let history: any;
+let history;
 
 describe('Links feed', () => {
   beforeEach(async () => {
