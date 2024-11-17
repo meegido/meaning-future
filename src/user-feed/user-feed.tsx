@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './user-feed.module.css';
 import defaultBgImages from '../images-data/bg-images.ts';
-import LinkPreview from './components/link-preview.tsx';
 import { useParams } from 'react-router-dom';
 import { getUserDocuments } from '../shared/infrastructure/firestore-client.tsx';
 import { LinkInfo } from '../types.ts';
+import LinkPreview from '../shared/components/link-preview.tsx';
 
 export const UserFeed = () => {
   const [links, setlinks] = useState<LinkInfo[]>([]);
@@ -47,6 +47,7 @@ export const UserFeed = () => {
       <section className={styles.wrapper}>
         {links.map((link) => (
           <LinkPreview
+            id={link.id!}
             key={link.id}
             serviceIcon={link.serviceIcon}
             url={link.url}

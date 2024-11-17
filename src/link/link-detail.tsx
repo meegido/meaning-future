@@ -1,3 +1,7 @@
+import { useParams } from 'react-router-dom';
+
 export const LinkDetail = () => {
-  return <div>one link</div>;
+  const { id } = useParams();
+
+  return <div>{id}</div>;
 };

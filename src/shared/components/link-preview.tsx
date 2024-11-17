@@ -1,7 +1,9 @@
 import { MouseEventHandler } from 'react';
 import styles from './link-preview.module.css';
+import { Link } from 'react-router-dom';
 
 interface Props {
+  id: string;
   url: string;
   title: string;
   text: string;
@@ -10,7 +12,7 @@ interface Props {
   onLeave: MouseEventHandler<HTMLDivElement>;
 }
 
-const LinkPreview = ({ url, title, text, serviceIcon, onHover, onLeave }: Props) => {
+const LinkPreview = ({ id, url, title, text, serviceIcon, onHover, onLeave }: Props) => {
   return (
     <>
       <article className={styles.article}>
@@ -26,13 +28,13 @@ const LinkPreview = ({ url, title, text, serviceIcon, onHover, onLeave }: Props)
               alt="service icon"
               srcSet=""
             />
-            <a href={url}>{title}</a>
+            <p>{title}</p>
           </div>
           <div>
             <p>{text}</p>
           </div>
           <div className={styles.view__detail}>
-            <a href="">View link detail</a>
+            <Link to={`/link/${id}`}>View link detail</Link>
           </div>
         </section>
       </article>

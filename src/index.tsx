@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   createRoutesFromChildren,
-  matchRoutes,
+  matchRoutes, Outlet,
   RouterProvider,
   useLocation,
   useNavigationType,
@@ -34,24 +34,37 @@ if (import.meta.env.MODE !== 'development') {
 
 const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRouter);
 
+const Layout = () => (
+  <>
+    <Header />
+    <Outlet />
+  </>
+);
+
 const router = sentryCreateBrowserRouter([
   {
     path: '/',
-    element: <Feed />,
-  },
-  {
-    path: '/:user',
-    element: <UserFeed />,
-  },
-  {
-    path: 'link/:id',
-    element: <LinkDetail />,
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        path: '/',
+        element: <Feed />,
+      },
+      {
+        path: '/:user',
+        element: <UserFeed />,
+      },
+      {
+        path: 'link/:id',
+        element: <LinkDetail />,
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <Header />
     <RouterProvider router={router} />
   </StrictMode>
 );
