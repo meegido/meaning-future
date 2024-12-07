@@ -1,4 +1,4 @@
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
 import { Feed } from './feed';
 import { getDocuments } from '../shared/infrastructure/firestore-client.tsx';
@@ -49,12 +49,13 @@ describe('Links feed', () => {
     expect(links).toHaveLength(2);
   });
 
-  it.skip('user goes to individual link page when click on view button', async () => {
+  it('user goes to individual link page when click on view button', async () => {
     const [viewButton] = await screen.findAllByText(/View link/i);
-    await act(async () => {
-      fireEvent.click(viewButton);
-    });
 
-    expect(history.push).toHaveBeenCalledWith('/link/1');
+    fireEvent.click(viewButton);
+
+    waitFor(() => {
+      expect(history.push).toHaveBeenCalledWith('link/1');
+    });
   });
 });
