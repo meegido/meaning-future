@@ -50,11 +50,10 @@ export const UserFeed = () => {
             id={link.id!}
             key={link.id}
             serviceIcon={link.serviceIcon}
-            url={link.url}
             title={link.title}
             text={link.text}
             onHover={() => handleLinkHover(link.imageUrl)}
-            onLeave={() => handleLinkOnLeave(link.imageUrl)}
+            onLeave={() => handleLinkOnLeave()}
           />
         ))}
       </section>

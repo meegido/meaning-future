@@ -33,7 +33,7 @@ const LinkPreview = ({ id, title, text, serviceIcon, onHover, onLeave }: Props) 
             <p>{text}</p>
           </div>
           <div className={styles.view__detail}>
-            <Link to={`/link/${id}`}>View link detail</Link>
+            <Link to={`/link/${id}`}>View link</Link>
           </div>
         </section>
       </article>
