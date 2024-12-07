@@ -6,13 +6,13 @@ import { getDocuments } from '../shared/infrastructure/firestore-client.js';
 import { LinkInfo } from '../types.ts';
 
 export const Feed = () => {
-  const [links, setlinks] = useState<LinkInfo[]>([]);
+  const [links, setLinks] = useState<LinkInfo[]>([]);
   const [bgImage, setBgImage] = useState('');
 
   useEffect(() => {
     (async () => {
       const links = await getDocuments();
-      setlinks(links);
+      setLinks(links);
     })();
   }, []);
 

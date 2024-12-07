@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, DocumentData } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, DocumentData, getDoc, doc } from 'firebase/firestore';
 import { firebaseConfig } from '../../firebase-config';
 import { LinkInfo } from '../../types';
 
@@ -22,4 +22,10 @@ export const getUserDocuments = async (user: string) => {
       return { id: doc.id, ...doc.data() };
     })
     .filter((linkInfo: LinkInfo) => linkInfo.userName === user);
+};
+
+export const getDocument = async (id: string) => {
+  const documentCollection = doc(db, 'links', id);
+  const linkDocument: DocumentData = await getDoc(documentCollection);
+  return linkDocument.data();
 };

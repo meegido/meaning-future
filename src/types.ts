@@ -4,6 +4,8 @@ export type LinkInfo = {
   title: string;
   text: string;
   serviceIcon: string;
+  service: string;
   imageUrl: string;
   userName: string;
+  perplexitySummary: string;
 };
