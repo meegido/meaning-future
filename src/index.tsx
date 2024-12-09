@@ -10,10 +10,10 @@ import {
 } from 'react-router-dom';
 import './global.css';
 import * as Sentry from '@sentry/react';
-import { Feed } from './feed/feed';
 import { UserFeed } from './user-feed/user-feed';
 import { LinkDetail } from './link/link-detail';
 import { Layout } from './Layout.tsx';
+import { HomeFeed } from './home-feed/home-feed.tsx';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -41,7 +41,7 @@ const router = sentryCreateBrowserRouter([
       {
         index: true,
         path: '/',
-        element: <Feed />,
+        element: <HomeFeed />,
       },
       {
         path: '/:user',

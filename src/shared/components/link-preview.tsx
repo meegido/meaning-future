@@ -1,6 +1,7 @@
 import { MouseEventHandler } from 'react';
 import styles from './link-preview.module.css';
 import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
 interface Props {
   id: string;
@@ -38,7 +39,8 @@ const LinkPreview = ({ id, title, text, serviceIcon, imageUrl, onHover, onLeave 
           </div>
 
           <div className={styles.view__detail}>
-            <Link to={`/link/${id}`}>View Link</Link>
+            <Link to={`/link/${id}`}>Read more</Link>
+            <ArrowUpRight />
           </div>
         </section>
       </article>

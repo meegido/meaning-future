@@ -1,13 +1,9 @@
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Feed } from './feed';
-import { getDocuments } from '../shared/infrastructure/firestore-client.tsx';
 import { MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
-vi.mock('../shared/infrastructure/firestore-client', () => ({
-  getDocuments: vi.fn(),
-}));
 let history: ReturnType<typeof createMemoryHistory>;
 // function mockResolvedValue(value: Awaited<ReturnType<T>>): MockInstance<T>
 
@@ -20,6 +16,9 @@ describe('Links feed', () => {
       title: 'Example 1',
       text: 'Description 1',
       imageUrl: 'image1.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary',
+      service: 'Linkedin',
     },
     {
       id: '2',
@@ -28,29 +27,25 @@ describe('Links feed', () => {
       title: 'Example 2',
       text: 'Description 2',
       imageUrl: 'image2.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary 2',
+      service: 'Youtube',
     },
   ];
   beforeEach(async () => {
-    (getDocuments as Mock).mockResolvedValue(mockResponse);
     history = createMemoryHistory();
     history.push = vi.fn();
     await act(async () => {
       render(
         <MemoryRouter>
-          <Feed />
+          <Feed links={mockResponse} />
         </MemoryRouter>
       );
     });
   });
 
-  it('display all users links', async () => {
-    const links = await screen.findAllByText(/View link/i);
-
-    expect(links).toHaveLength(2);
-  });
-
   it('user goes to individual link page when click on view button', async () => {
-    const [viewButton] = await screen.findAllByText(/View link/i);
+    const [viewButton] = await screen.findAllByText(/Read more/i);
 
     fireEvent.click(viewButton);
 

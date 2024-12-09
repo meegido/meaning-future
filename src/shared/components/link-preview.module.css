@@ -51,6 +51,10 @@ article {
   justify-content: flex-end;
 }
 
+.view__detail a {
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
   .article__content {
     display: flex;
@@ -60,8 +64,19 @@ article {
 }
 
 @media (min-width: 1200px) {
+  .article__wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .article__content {
+    flex: 1 1 0;
+  }
+
   .title__wrapper {
     align-items: unset;
+    flex: 1 1 0;
   }
 }
 

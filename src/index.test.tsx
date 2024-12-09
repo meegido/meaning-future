@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import { Header } from './shared/components/header';
-import { Feed } from './feed/feed';
 import { MemoryRouter } from 'react-router-dom';
+import { HomeFeed } from './home-feed/home-feed';
 
 describe('When the page loads', () => {
   test('renders the Home component', () => {
-    render(<Feed />);
+    render(<HomeFeed />);
 
     screen.debug();
   });
