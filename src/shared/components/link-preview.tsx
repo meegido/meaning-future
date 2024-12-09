@@ -7,11 +7,12 @@ interface Props {
   title: string;
   text: string;
   serviceIcon: string;
+  imageUrl: string;
   onHover: MouseEventHandler<HTMLDivElement>;
   onLeave: MouseEventHandler<HTMLDivElement>;
 }
 
-const LinkPreview = ({ id, title, text, serviceIcon, onHover, onLeave }: Props) => {
+const LinkPreview = ({ id, title, text, serviceIcon, imageUrl, onHover, onLeave }: Props) => {
   return (
     <>
       <article className={styles.article}>
@@ -20,20 +21,24 @@ const LinkPreview = ({ id, title, text, serviceIcon, onHover, onLeave }: Props) 
           onMouseEnter={onHover}
           onMouseLeave={onLeave}
         >
-          <div className={styles['title__wrapper']}>
-            <img
-              className={styles['social__icon']}
-              src={serviceIcon}
-              alt="service icon"
-              srcSet=""
-            />
-            <p>{title}</p>
+          <div className={styles.article__content}>
+            <div className={styles.article__image}>
+              <img className={styles['article__main--image']} src={imageUrl} alt="link imge" />
+              <img
+                className={styles['social__icon']}
+                src={serviceIcon}
+                alt="service icon"
+                srcSet=""
+              />
+            </div>
+            <div className={styles['title__wrapper']}>
+              <p>{title}</p>
+              <p>{text}</p>
+            </div>
           </div>
-          <div>
-            <p>{text}</p>
-          </div>
+
           <div className={styles.view__detail}>
-            <Link to={`/link/${id}`}>View link</Link>
+            <Link to={`/link/${id}`}>View Link</Link>
           </div>
         </section>
       </article>

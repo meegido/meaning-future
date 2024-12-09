@@ -1,19 +1,16 @@
-@font-face{
-  font-family: "Pilowlava";
-  src:local("Pilowlava-Atome"),
-  url('./assets/fonts/Pilowlava-Atome.woff'); 
+@font-face {
+  font-family: 'Pilowlava';
+  src: local('Pilowlava-Atome'), url('./assets/fonts/Pilowlava-Atome.woff');
 }
 
-@font-face{
-  font-family: "AppleSD Regular";
-  src:local("AppleSDGothicNeoRegular"),
-  url('./assets/fonts/AppleSDGothicNeoRegular.ttf'); 
+@font-face {
+  font-family: 'AppleSD Regular';
+  src: local('AppleSDGothicNeoRegular'), url('./assets/fonts/AppleSDGothicNeoRegular.ttf');
 }
 
-@font-face{
-  font-family: "AppleSD Bold";
-  src:local("AppleSDGothicNeoBold"),
-  url('./assets/fonts/AppleSDGothicNeoBold.ttf'); 
+@font-face {
+  font-family: 'AppleSD Bold';
+  src: local('AppleSDGothicNeoBold'), url('./assets/fonts/AppleSDGothicNeoBold.ttf');
 }
 
 :root {
@@ -29,7 +26,7 @@
   background-color: var(--white);
 
   --white: rgba(234, 247, 246, 0.1);
-  --black: #2D2D2C;
+  --black: #2d2d2c;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -60,49 +57,49 @@
 @media (min-width: 1200px) {
   :root {
     --container-width: 1200px;
-    --container-padding: 80px;
+    --container-padding: 120px;
   }
 }
 
 @media (min-width: 1366px) {
   :root {
     --container-width: 1200px;
-    --container-padding: 80px;
+    --container-padding: 120px;
   }
 }
 
 @media (min-width: 1440px) {
   :root {
     --container-width: 1200px;
-    --container-padding: 80px;
+    --container-padding: 240px;
   }
 }
 
 @media (min-width: 1552px) {
   :root {
     --container-width: 1440px;
-    --container-padding: 80px;
+    --container-padding: 240px;
   }
 }
 
 @media (min-width: 1680px) {
   :root {
     --container-width: 1552px;
-    --container-padding: 120px;
+    --container-padding: 360px;
   }
 }
 
 @media (min-width: 1760px) {
   :root {
     --container-width: 1680px;
-    --container-padding: 120px;
+    --container-padding: 360px;
   }
 }
 
 @media (min-width: 1920px) {
   :root {
     --container-width: 1680px;
-    --container-padding: 320px;
+    --container-padding: 420px;
   }
 }
 
@@ -122,10 +119,19 @@ body {
   line-height: 24px;
 }
 
-h1 {
+h1 a {
   font-family: 'Pilowlava';
   color: var(--black);
   font-size: 36px;
+  font-weight: 500;
+  line-height: 46px; /* 166.667% */
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'AppleSD Regular';
+  color: var(--black);
+  font-size: 32px;
   font-weight: 500;
   line-height: 46px; /* 166.667% */
 }
@@ -162,14 +168,14 @@ p {
 a {
   font-family: 'AppleSD Bold';
   text-underline-offset: 4px;
-  letter-spacing: -0.187px; 
+  letter-spacing: -0.187px;
 }
 
 a:hover {
   color: var(--black);
 }
 
-p, 
+p,
 h3 {
   font-family: 'AppleSD Regular';
 }

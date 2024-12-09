@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, test } from 'vitest';
 import { Header } from './shared/components/header';
 import { Feed } from './feed/feed';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('When the page loads', () => {
   test('renders the Home component', () => {
@@ -11,7 +12,11 @@ describe('When the page loads', () => {
   });
 
   test('renders the header', () => {
-    render(<Header />);
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
 
     const heading = screen.getByRole('heading', {
       name: /Meaning future/i,

@@ -18,18 +18,60 @@ article {
     transform 0.5s;
 }
 
+.article__image {
+  position: relative;
+}
+
+.article__main--image {
+  width: 161px;
+}
+
 .social__icon {
+  position: absolute;
+  right: 6px;
+  top: 76px;
   width: 26px;
   height: 26px;
 }
 
 .title__wrapper {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   align-items: center;
+}
+
+.title__wrapper p:first-of-type {
+  font-size: 26px;
+  line-height: 28px;
 }
 
 .view__detail {
   display: flex;
   justify-content: flex-end;
+}
+
+@media (min-width: 768px) {
+  .article__content {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .title__wrapper {
+    align-items: unset;
+  }
+}
+
+@media (min-width: 1366px) {
+  .article__main--image {
+    width: 200px;
+  }
+
+  .social__icon {
+    right: 6px;
+    top: 96px;
+  }
 }

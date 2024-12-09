@@ -51,6 +51,7 @@ export const Feed = () => {
             serviceIcon={link.serviceIcon}
             title={link.title}
             text={link.text}
+            imageUrl={link.imageUrl}
             onHover={() => handleLinkHover(link.imageUrl)}
             onLeave={() => handleLinkOnLeave()}
           />
