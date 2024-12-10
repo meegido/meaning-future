@@ -1,68 +1,58 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import styles from './feed.module.css';
-import defaultBgImages from '../../../images-data/bg-images.ts';
 import { LinkInfo } from '../../../types.ts';
-import { ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import LinkPreview from '../link-preview.tsx';
+import defaultBgImages from '../../../images-data/bg-images.ts';
 
 interface FeedProps {
   links: LinkInfo[];
 }
 
 export const Feed = ({ links }: FeedProps) => {
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const fallbackImage = defaultBgImages[0];
+  const mainRef = useRef<HTMLDivElement>(null);
 
   const handleLinkHover = useCallback(
     (image: string) => {
-      if (backgroundRef.current) {
-        backgroundRef.current.style.backgroundImage = `url(${image || fallbackImage})`;
+      console.log(image, 'LA IMAGEN');
+      if (mainRef && 'current' in mainRef && mainRef.current) {
+        mainRef.current.style.setProperty('--main-bg-image', `url(${image || defaultBgImages[0]})`);
+        mainRef.current.style.boxShadow = 'inset 0 0 0 2000px rgba(0, 0, 0, 0.3)';
       }
     },
-    [fallbackImage]
+    [mainRef]
   );
 
   const handleLinkOnLeave = useCallback(() => {
-    if (backgroundRef.current) {
-      backgroundRef.current.style.backgroundImage = `url()`;
+    if (mainRef && 'current' in mainRef && mainRef.current) {
+      mainRef.current.style.setProperty('--main-bg-image', '');
+      mainRef.current.style.boxShadow = '';
     }
-  }, []);
+  }, [mainRef]);
+
+  useEffect(() => {
+    const element = mainRef && 'current' in mainRef && mainRef.current;
+
+    if (element) {
+      element.addEventListener('mouseenter', () => handleLinkHover(defaultBgImages[0]));
+      element.addEventListener('mouseleave', handleLinkOnLeave);
+
+      return () => {
+        element.removeEventListener('mouseenter', () => handleLinkHover(defaultBgImages[0]));
+        element.removeEventListener('mouseleave', handleLinkOnLeave);
+      };
+    }
+  }, [mainRef, handleLinkHover, handleLinkOnLeave]);
 
   return (
-    <main ref={backgroundRef} className={styles['bg-image']}>
+    <main ref={mainRef} className={styles['bg-image']}>
       <section className={styles.wrapper}>
         {links.map((link) => (
-          <article className={styles.article} key={link.id}>
-            <section
-              className={styles['article__wrapper']}
-              onMouseEnter={() => handleLinkHover(link.imageUrl)}
-              onMouseLeave={handleLinkOnLeave}
-            >
-              <div className={styles.article__content}>
-                <div className={styles.article__image}>
-                  <img
-                    className={styles['article__main--image']}
-                    src={link.imageUrl === undefined ? fallbackImage : link.imageUrl}
-                    alt="link imge"
-                  />
-                  <img
-                    className={styles['social__icon']}
-                    src={link.serviceIcon}
-                    alt="service icon"
-                  />
-                </div>
-                <div className={styles['title__wrapper']}>
-                  <p>{link.title}</p>
-                  <p>{link.text}</p>
-                </div>
-              </div>
-
-              <div className={styles.view__detail}>
-                <Link to={`/link/${link.id}`}>Read more</Link>
-                <ArrowUpRight />
-              </div>
-            </section>
-          </article>
+          <LinkPreview
+            key={link.id}
+            link={link}
+            onHover={() => handleLinkHover(link.imageUrl)}
+            onLeave={handleLinkOnLeave}
+          />
         ))}
       </section>
     </main>

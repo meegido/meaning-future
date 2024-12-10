@@ -1,19 +1,17 @@
-import { MouseEventHandler } from 'react';
 import styles from './link-preview.module.css';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import { LinkInfo } from '../../types';
+import defaultBgImages from '../../images-data/bg-images.ts';
+import { MouseEventHandler } from 'react';
 
 interface Props {
-  id: string;
-  title: string;
-  text: string;
-  serviceIcon: string;
-  imageUrl: string;
+  link: LinkInfo;
   onHover: MouseEventHandler<HTMLDivElement>;
   onLeave: MouseEventHandler<HTMLDivElement>;
 }
 
-const LinkPreview = ({ id, title, text, serviceIcon, imageUrl, onHover, onLeave }: Props) => {
+const LinkPreview = ({ link, onHover, onLeave }: Props) => {
   return (
     <>
       <article className={styles.article}>
@@ -24,17 +22,21 @@ const LinkPreview = ({ id, title, text, serviceIcon, imageUrl, onHover, onLeave 
         >
           <div className={styles.article__content}>
             <div className={styles.article__image}>
-              <img className={styles['article__main--image']} src={imageUrl} alt="link imge" />
-              <img className={styles['social__icon']} src={serviceIcon} alt="service icon" />
+              <img
+                className={styles['article__main--image']}
+                src={link.imageUrl || defaultBgImages[0]}
+                alt="link imge"
+              />
+              <img className={styles['social__icon']} src={link.serviceIcon} alt="service icon" />
             </div>
             <div className={styles['title__wrapper']}>
-              <p>{title}</p>
-              <p>{text}</p>
+              <p>{link.title}</p>
+              <p>{link.text}</p>
             </div>
           </div>
 
           <div className={styles.view__detail}>
-            <Link to={`/link/${id}`}>Read more</Link>
+            <Link to={`/link/${link.id}`}>Read more</Link>
             <ArrowUpRight />
           </div>
         </section>
