@@ -25,12 +25,7 @@ const LinkPreview = ({ id, title, text, serviceIcon, imageUrl, onHover, onLeave 
           <div className={styles.article__content}>
             <div className={styles.article__image}>
               <img className={styles['article__main--image']} src={imageUrl} alt="link imge" />
-              <img
-                className={styles['social__icon']}
-                src={serviceIcon}
-                alt="service icon"
-                srcSet=""
-              />
+              <img className={styles['social__icon']} src={serviceIcon} alt="service icon" />
             </div>
             <div className={styles['title__wrapper']}>
               <p>{title}</p>

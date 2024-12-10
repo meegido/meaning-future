@@ -1,55 +1,68 @@
-import { useState } from 'react';
+import { useCallback, useRef } from 'react';
 import styles from './feed.module.css';
-import LinkPreview from '../link-preview';
 import defaultBgImages from '../../../images-data/bg-images.ts';
 import { LinkInfo } from '../../../types.ts';
+import { ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface FeedProps {
   links: LinkInfo[];
 }
 
 export const Feed = ({ links }: FeedProps) => {
-  const [bgImage, setBgImage] = useState('');
+  const backgroundRef = useRef<HTMLDivElement>(null);
+  const fallbackImage = defaultBgImages[0];
 
-  const handleLinkHover = (image: string) => {
-    if (image === undefined) {
-      const randomNumber = Math.floor(Math.random() * 4);
-      setBgImage(defaultBgImages[randomNumber]);
-      return;
+  const handleLinkHover = useCallback(
+    (image: string) => {
+      if (backgroundRef.current) {
+        backgroundRef.current.style.backgroundImage = `url(${image || fallbackImage})`;
+      }
+    },
+    [fallbackImage]
+  );
+
+  const handleLinkOnLeave = useCallback(() => {
+    if (backgroundRef.current) {
+      backgroundRef.current.style.backgroundImage = `url()`;
     }
-    const newBgImage = image;
-    setBgImage(newBgImage);
-  };
-
-  const handleLinkOnLeave = () => {
-    setBgImage('');
-  };
+  }, []);
 
   return (
-    <main
-      style={
-        bgImage
-          ? {
-              backgroundImage: `url(${bgImage})`,
-              boxShadow: 'inset 0 0 0 2000px rgba(0, 0, 0, 0.3)',
-              backgroundColor: '#0e0e0ea6',
-            }
-          : {}
-      }
-      className={styles['bg-image']}
-    >
+    <main ref={backgroundRef} className={styles['bg-image']}>
       <section className={styles.wrapper}>
         {links.map((link) => (
-          <LinkPreview
-            id={link.id!}
-            key={link.id}
-            serviceIcon={link.serviceIcon}
-            title={link.title}
-            text={link.text}
-            imageUrl={link.imageUrl}
-            onHover={() => handleLinkHover(link.imageUrl)}
-            onLeave={() => handleLinkOnLeave()}
-          />
+          <article className={styles.article} key={link.id}>
+            <section
+              className={styles['article__wrapper']}
+              onMouseEnter={() => handleLinkHover(link.imageUrl)}
+              onMouseLeave={handleLinkOnLeave}
+            >
+              <div className={styles.article__content}>
+                <div className={styles.article__image}>
+                  <img
+                    className={styles['article__main--image']}
+                    src={link.imageUrl === undefined ? fallbackImage : link.imageUrl}
+                    alt="link imge"
+                  />
+                  <img
+                    className={styles['social__icon']}
+                    src={link.serviceIcon}
+                    alt="service icon"
+                  />
+                </div>
+                <div className={styles['title__wrapper']}>
+                  <p>{link.title}</p>
+                  <p>{link.text}</p>
+                </div>
+              </div>
+
+              <div className={styles.view__detail}>
+                <Link to={`/link/${link.id}`}>Read more</Link>
+                <ArrowUpRight />
+              </div>
+            </section>
+          </article>
         ))}
       </section>
     </main>
