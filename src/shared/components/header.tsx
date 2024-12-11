@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
       <h1>
         <NavLink to="/">Meaning future</NavLink>
       </h1>
-      <nav className={styles.menu} role="navigation">
+      <nav className={styles.nav} role="navigation">
         <ul>
           <li>
             <NavLink to="/about">About</NavLink>

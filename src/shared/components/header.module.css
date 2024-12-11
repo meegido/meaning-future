@@ -1,4 +1,16 @@
 header {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 40px var(--container-padding);
+  z-index: 1;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
 }
