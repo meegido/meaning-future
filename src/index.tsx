@@ -14,6 +14,7 @@ import { UserFeed } from './user-feed/user-feed';
 import { LinkDetail } from './link/link-detail';
 import { Layout } from './Layout.tsx';
 import { HomeFeed } from './home-feed/home-feed.tsx';
+import { About } from './about/about.tsx';
 
 if (import.meta.env.MODE !== 'development') {
   Sentry.init({
@@ -48,8 +49,12 @@ const router = sentryCreateBrowserRouter([
         element: <UserFeed />,
       },
       {
-        path: 'link/:id',
+        path: '/link/:id',
         element: <LinkDetail />,
+      },
+      {
+        path: 'about',
+        element: <About />,
       },
     ],
   },

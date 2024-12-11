@@ -1,5 +1,36 @@
-.link__wrapper h1 {
+.wrapper {
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper h1 {
   font-family: 'AppleSD Regular';
   font-size: 32px;
   line-height: 36px;
+}
+
+.main__image {
+  min-width: 300px;
+  width: 100%;
+}
+
+.link__url {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 4px;
+}
+
+.link__url img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 40px var(--container-padding);
+  }
 }

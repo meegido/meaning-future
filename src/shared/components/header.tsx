@@ -7,6 +7,13 @@ export const Header: React.FC = () => {
       <h1>
         <NavLink to="/">Meaning future</NavLink>
       </h1>
+      <nav className={styles.menu} role="navigation">
+        <ul>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 };

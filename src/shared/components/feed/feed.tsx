@@ -13,7 +13,6 @@ export const Feed = ({ links }: FeedProps) => {
 
   const handleLinkHover = useCallback(
     (image: string) => {
-      console.log(image, 'LA IMAGEN');
       if (mainRef && 'current' in mainRef && mainRef.current) {
         mainRef.current.style.setProperty('--main-bg-image', `url(${image || defaultBgImages[0]})`);
         mainRef.current.style.boxShadow = 'inset 0 0 0 2000px rgba(0, 0, 0, 0.3)';
