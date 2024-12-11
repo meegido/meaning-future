@@ -48,8 +48,10 @@ describe('User feed', () => {
   });
   it('display from specific user', async () => {
     expect(getUserDocuments).toHaveBeenCalledWith('laponyo');
-    const links = await screen.findAllByText(/Read more/i);
+    const readMoreLink = await screen.findAllByText(/Read more/i);
+    expect(readMoreLink).toHaveLength(2);
 
-    expect(links).toHaveLength(2);
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
   });
 });

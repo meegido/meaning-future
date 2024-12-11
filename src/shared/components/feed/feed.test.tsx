@@ -5,7 +5,6 @@ import { MemoryRouter } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 
 let history: ReturnType<typeof createMemoryHistory>;
-// function mockResolvedValue(value: Awaited<ReturnType<T>>): MockInstance<T>
 
 describe('Links feed', () => {
   const mockResponse = [
@@ -41,6 +40,29 @@ describe('Links feed', () => {
           <Feed links={mockResponse} />
         </MemoryRouter>
       );
+    });
+  });
+
+  it('shows the links title', async () => {
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
+  });
+
+  it('shows the link image', async () => {
+    const images = await screen.findAllByRole('img', { name: 'link image' });
+    expect(images.length).toBeGreaterThan(1);
+
+    images.forEach((attribute: HTMLElement, index: number) => {
+      expect(attribute).toHaveAttribute('src', mockResponse[index].imageUrl);
+    });
+  });
+
+  it('shows the source image', async () => {
+    const images = await screen.findAllByRole('img', { name: 'service icon' });
+    expect(images.length).toBeGreaterThan(1);
+
+    images.forEach((attribute: HTMLElement, index: number) => {
+      expect(attribute).toHaveAttribute('src', mockResponse[index].serviceIcon);
     });
   });
 

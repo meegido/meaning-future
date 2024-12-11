@@ -26,11 +26,17 @@ const LinkPreview = ({ link, onHover, onLeave }: Props) => {
                 className={styles['article__main--image']}
                 src={link.imageUrl || defaultBgImages[0]}
                 alt="link imge"
+                aria-label="link image"
               />
-              <img className={styles['social__icon']} src={link.serviceIcon} alt="service icon" />
+              <img
+                className={styles['social__icon']}
+                src={link.serviceIcon}
+                alt="service icon"
+                aria-label="service icon"
+              />
             </div>
             <div className={styles['title__wrapper']}>
-              <p>{link.title}</p>
+              <h2>{link.title}</h2>
               <p>{link.text}</p>
             </div>
           </div>

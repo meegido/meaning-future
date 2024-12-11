@@ -45,8 +45,10 @@ describe('Home feed', () => {
     });
   });
   it('display all users links', async () => {
-    const links = await screen.findAllByText(/Read more/i);
+    const readMoreLink = await screen.findAllByText(/Read more/i);
+    expect(readMoreLink).toHaveLength(2);
 
-    expect(links).toHaveLength(2);
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
   });
 });
