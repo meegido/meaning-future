@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import styles from './search-box.module.css';
 
 interface SearchBoxProps {
@@ -13,14 +13,18 @@ export const SearchBox = ({
   debounceMs = 250,
 }: SearchBoxProps) => {
   const [value, setValue] = useState('');
+  const onQueryChangeRef = useRef(onQueryChange);
+  useEffect(() => {
+    onQueryChangeRef.current = onQueryChange;
+  });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      onQueryChange(value);
+      onQueryChangeRef.current(value);
     }, debounceMs);
 
     return () => clearTimeout(timeout);
-  }, [value, debounceMs, onQueryChange]);
+  }, [value, debounceMs]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
