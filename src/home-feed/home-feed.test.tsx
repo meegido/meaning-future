@@ -1,4 +1,5 @@
-import { act, render, screen } from '@testing-library/react';
+import { act, render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
 import { getDocuments } from '../shared/infrastructure/firestore-client';
 import { MemoryRouter } from 'react-router-dom';
@@ -18,7 +19,7 @@ describe('Home feed', () => {
       text: 'Description 1',
       imageUrl: 'image1.png',
       userName: 'laponyo',
-      perplexitySummary: 'perplexity summary',
+      perplexitySummary: 'A summary about React hooks',
       service: 'Linkedin',
     },
     {
@@ -29,7 +30,7 @@ describe('Home feed', () => {
       text: 'Description 2',
       imageUrl: 'image2.png',
       userName: 'laponyo',
-      perplexitySummary: 'perplexity summary 2',
+      perplexitySummary: 'A summary about TypeScript generics',
       service: 'Youtube',
     },
   ];
@@ -44,11 +45,23 @@ describe('Home feed', () => {
       );
     });
   });
-  it('display all users links', async () => {
+
+  it('displays all user links when no query is entered', async () => {
     const readMoreLink = await screen.findAllByText(/Read more/i);
     expect(readMoreLink).toHaveLength(2);
+  });
 
-    const [title] = await screen.findAllByRole('heading', { level: 2 });
-    expect(title).toBeInTheDocument();
+  it('filters links by perplexitySummary when the user types', async () => {
+    const user = userEvent.setup();
+    const input = screen.getByRole('searchbox', { name: /buscar enlaces/i });
+
+    await user.type(input, 'react');
+
+    await waitFor(() => {
+      const readMoreLink = screen.getAllByText(/Read more/i);
+      expect(readMoreLink).toHaveLength(1);
+    });
+    expect(screen.getByRole('heading', { level: 2, name: 'Example 1' })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { level: 2, name: 'Example 2' })).not.toBeInTheDocument();
   });
 });
