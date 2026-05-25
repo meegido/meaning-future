@@ -56,9 +56,7 @@ describe('SearchBox', () => {
       vi.advanceTimersByTime(250);
     });
 
-    const callsWithRealValues = onQueryChange.mock.calls.filter(
-      ([arg]) => arg !== ''
-    );
+    const callsWithRealValues = onQueryChange.mock.calls.filter(([arg]) => arg !== '');
     expect(callsWithRealValues).toHaveLength(1);
     expect(callsWithRealValues[0]).toEqual(['react']);
   });

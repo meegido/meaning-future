@@ -1,0 +1,1656 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.github/
+  workflows/
+    main.yml
+  dependabot.yml
+public/
+  vite.svg
+src/
+  about/
+    about.module.css
+    about.tsx
+  assets/
+    images/
+      linkedin.svg
+  home-feed/
+    home-feed.test.tsx
+    home-feed.tsx
+  images-data/
+    bg-images.ts
+    icons.ts
+  link/
+    link-detail.module.css
+    link-detail.test.tsx
+    link-detail.tsx
+  shared/
+    components/
+      feed/
+        feed.module.css
+        feed.test.tsx
+        feed.tsx
+      header.module.css
+      header.tsx
+      link-preview.module.css
+      link-preview.tsx
+    infrastructure/
+      firestore-client.tsx
+  tests/
+    setup.ts
+  user-feed/
+    user-feed.module.css
+    user-feed.test.tsx
+    user-feed.tsx
+  firebase-config.ts
+  global.css
+  index.test.tsx
+  index.tsx
+  Layout.tsx
+  types.ts
+  vite-env.d.ts
+.gitignore
+.prettierrc
+eslint.config.js
+index.html
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vercel.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="src/assets/images/linkedin.svg">
+<svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5 0.75C17.1641 0.75 17.75 1.33594 17.75 2.03906V17C17.75 17.7031 17.1641 18.25 16.5 18.25H1.46094C0.796875 18.25 0.25 17.7031 0.25 17V2.03906C0.25 1.33594 0.796875 0.75 1.46094 0.75H16.5ZM5.52344 15.75V7.42969H2.94531V15.75H5.52344ZM4.23438 6.25781C5.05469 6.25781 5.71875 5.59375 5.71875 4.77344C5.71875 3.95312 5.05469 3.25 4.23438 3.25C3.375 3.25 2.71094 3.95312 2.71094 4.77344C2.71094 5.59375 3.375 6.25781 4.23438 6.25781ZM15.25 15.75V11.1797C15.25 8.95312 14.7422 7.19531 12.125 7.19531C10.875 7.19531 10.0156 7.89844 9.66406 8.5625H9.625V7.42969H7.16406V15.75H9.74219V11.6484C9.74219 10.5547 9.9375 9.5 11.3047 9.5C12.6328 9.5 12.6328 10.75 12.6328 11.6875V15.75H15.25Z" fill="#434341"/>
+</svg>
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="README.md">
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</file>
+
+<file path="tsconfig.app.json">
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+</file>
+
+<file path="tsconfig.node.json">
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts"]
+}
+</file>
+
+<file path=".github/dependabot.yml">
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+</file>
+
+<file path="src/about/about.module.css">
+.wrapper {
+  padding: 40px var(--container-padding);
+}
+.wrapper h1 {
+  font-family: 'AppleSD Regular';
+  font-size: 32px;
+  line-height: 36px;
+}
+</file>
+
+<file path="src/home-feed/home-feed.tsx">
+import { useEffect, useState } from 'react';
+import { LinkInfo } from '../types';
+import { getDocuments } from '../shared/infrastructure/firestore-client';
+import { Feed } from '../shared/components/feed/feed';
+
+export const HomeFeed = () => {
+  const [links, setLinks] = useState<LinkInfo[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const links = await getDocuments();
+      setLinks(links);
+    })();
+  }, []);
+
+  return <Feed links={links} />;
+};
+</file>
+
+<file path="src/images-data/icons.ts">
+import linkedinIcon from '../assets/images/linkedin.svg';
+
+const serviceIcons = {
+  linkedin: {
+    name: 'linkedin',
+    icon: linkedinIcon,
+  },
+};
+
+export default serviceIcons;
+</file>
+
+<file path="src/tests/setup.ts">
+import { afterEach } from 'vitest';
+import { cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+
+// runs a clean after each test case (e.g. clearing jsdom)
+afterEach(() => {
+  cleanup();
+});
+</file>
+
+<file path="src/user-feed/user-feed.module.css">
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 132px var(--container-padding);
+  position: relative;
+  height: 100vh;
+}
+
+.bg-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  mix-blend-mode: multiply;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  transition: '.5s ease';
+}
+
+@keyframes fadeBackground {
+  from {
+    background-color: #fce97f;
+  }
+  to {
+    background-color: #2eb07b;
+  }
+}
+</file>
+
+<file path="src/firebase-config.ts">
+export const firebaseConfig = {
+  apiKey: import.meta.env.API_KEY,
+  authDomain: import.meta.env.AUTH_DOMAIN,
+  databaseURL: import.meta.env.DATABASE_URL,
+  projectId: 'db-test-a2b82',
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID,
+  // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
+  measurementId: import.meta.env.MEASUREMENT_ID,
+};
+</file>
+
+<file path="src/Layout.tsx">
+import { Header } from './shared/components/header.tsx';
+import { Outlet } from 'react-router-dom';
+
+export const Layout = () => (
+  <>
+    <Header />
+    <Outlet />
+  </>
+);
+</file>
+
+<file path="src/vite-env.d.ts">
+/// <reference types="vite/client" />;
+</file>
+
+<file path="vercel.json">
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+}
+</file>
+
+<file path="src/about/about.tsx">
+import styles from './about.module.css';
+
+export const About = () => {
+  return (
+    <div className={styles.wrapper}>
+      <h1>About</h1>
+    </div>
+  );
+};
+</file>
+
+<file path="src/home-feed/home-feed.test.tsx">
+import { act, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import { getDocuments } from '../shared/infrastructure/firestore-client';
+import { MemoryRouter } from 'react-router-dom';
+import { HomeFeed } from './home-feed';
+
+vi.mock('../shared/infrastructure/firestore-client.tsx', () => ({
+  getDocuments: vi.fn(),
+}));
+
+describe('Home feed', () => {
+  const mockResponse = [
+    {
+      id: '1',
+      serviceIcon: 'icon1.png',
+      url: 'http://example.com/1',
+      title: 'Example 1',
+      text: 'Description 1',
+      imageUrl: 'image1.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary',
+      service: 'Linkedin',
+    },
+    {
+      id: '2',
+      serviceIcon: 'icon2.png',
+      url: 'http://example.com/2',
+      title: 'Example 2',
+      text: 'Description 2',
+      imageUrl: 'image2.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary 2',
+      service: 'Youtube',
+    },
+  ];
+
+  beforeEach(async () => {
+    (getDocuments as Mock).mockResolvedValue(mockResponse);
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <HomeFeed />
+        </MemoryRouter>
+      );
+    });
+  });
+  it('display all users links', async () => {
+    const readMoreLink = await screen.findAllByText(/Read more/i);
+    expect(readMoreLink).toHaveLength(2);
+
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
+  });
+});
+</file>
+
+<file path="src/images-data/bg-images.ts">
+import bg1 from '../assets/images/meaning-future-gb-4.png';
+import bg3 from '../assets/images/meaning-future-bg-2-2.png';
+
+const defaultBgImages = [bg1, bg3];
+
+export default defaultBgImages;
+</file>
+
+<file path="src/shared/components/feed/feed.test.tsx">
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { Feed } from './feed';
+import { MemoryRouter } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+
+let history: ReturnType<typeof createMemoryHistory>;
+
+describe('Links feed', () => {
+  const mockResponse = [
+    {
+      id: '1',
+      serviceIcon: 'icon1.png',
+      url: 'http://example.com/1',
+      title: 'Example 1',
+      text: 'Description 1',
+      imageUrl: 'image1.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary',
+      service: 'Linkedin',
+    },
+    {
+      id: '2',
+      serviceIcon: 'icon2.png',
+      url: 'http://example.com/2',
+      title: 'Example 2',
+      text: 'Description 2',
+      imageUrl: 'image2.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary 2',
+      service: 'Youtube',
+    },
+  ];
+  beforeEach(async () => {
+    history = createMemoryHistory();
+    history.push = vi.fn();
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <Feed links={mockResponse} />
+        </MemoryRouter>
+      );
+    });
+  });
+
+  it('shows the links title', async () => {
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
+  });
+
+  it('shows the link image', async () => {
+    const images = await screen.findAllByRole('img', { name: 'link image' });
+    expect(images.length).toBeGreaterThan(1);
+
+    images.forEach((attribute: HTMLElement, index: number) => {
+      expect(attribute).toHaveAttribute('src', mockResponse[index].imageUrl);
+    });
+  });
+
+  it('shows the source image', async () => {
+    const images = await screen.findAllByRole('img', { name: 'service icon' });
+    expect(images.length).toBeGreaterThan(1);
+
+    images.forEach((attribute: HTMLElement, index: number) => {
+      expect(attribute).toHaveAttribute('src', mockResponse[index].serviceIcon);
+    });
+  });
+
+  it('user goes to individual link page when click on view button', async () => {
+    const [viewButton] = await screen.findAllByText(/Read more/i);
+
+    fireEvent.click(viewButton);
+
+    waitFor(() => {
+      expect(history.push).toHaveBeenCalledWith('link/1');
+    });
+  });
+});
+</file>
+
+<file path="src/shared/infrastructure/firestore-client.tsx">
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs, DocumentData, getDoc, doc } from 'firebase/firestore';
+import { firebaseConfig } from '../../firebase-config';
+import { LinkInfo } from '../../types';
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+export const getDocuments = async () => {
+  const linkCollection = collection(db, 'links');
+  const linkDocuments = await getDocs(linkCollection);
+  return linkDocuments.docs.map<LinkInfo>((doc: DocumentData) => {
+    return { id: doc.id, ...doc.data() };
+  });
+};
+
+export const getUserDocuments = async (user: string) => {
+  const linkCollection = collection(db, 'links');
+  const linkDocuments = await getDocs(linkCollection);
+  return linkDocuments.docs
+    .map<LinkInfo>((doc: DocumentData) => {
+      return { id: doc.id, ...doc.data() };
+    })
+    .filter((linkInfo: LinkInfo) => linkInfo.userName === user);
+};
+
+export const getDocument = async (id: string) => {
+  const documentCollection = doc(db, 'links', id);
+  const linkDocument: DocumentData = await getDoc(documentCollection);
+  return linkDocument.data();
+};
+</file>
+
+<file path="src/user-feed/user-feed.test.tsx">
+import { act, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import { getUserDocuments } from '../shared/infrastructure/firestore-client';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
+import { UserFeed } from './user-feed';
+
+vi.mock('../shared/infrastructure/firestore-client.tsx', () => ({
+  getUserDocuments: vi.fn(),
+}));
+
+describe('User feed', () => {
+  const mockResponse = [
+    {
+      id: '1',
+      serviceIcon: 'icon1.png',
+      url: 'http://example.com/1',
+      title: 'Example 1',
+      text: 'Description 1',
+      imageUrl: 'image1.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary',
+      service: 'Linkedin',
+    },
+    {
+      id: '2',
+      serviceIcon: 'icon2.png',
+      url: 'http://example.com/2',
+      title: 'Example 2',
+      text: 'Description 2',
+      imageUrl: 'image2.png',
+      userName: 'laponyo',
+      perplexitySummary: 'perplexity summary 2',
+      service: 'Youtube',
+    },
+  ];
+  beforeEach(async () => {
+    (getUserDocuments as Mock).mockResolvedValue(mockResponse);
+
+    await act(async () => {
+      render(
+        <MemoryRouter initialEntries={['/laponyo']}>
+          <Routes>
+            <Route path="/:user" element={<UserFeed />} />
+          </Routes>
+        </MemoryRouter>
+      );
+    });
+  });
+  it('display from specific user', async () => {
+    expect(getUserDocuments).toHaveBeenCalledWith('laponyo');
+    const readMoreLink = await screen.findAllByText(/Read more/i);
+    expect(readMoreLink).toHaveLength(2);
+
+    const [title] = await screen.findAllByRole('heading', { level: 2 });
+    expect(title).toBeInTheDocument();
+  });
+});
+</file>
+
+<file path="src/global.css">
+@font-face {
+  font-family: 'Pilowlava';
+  src: local('Pilowlava-Atome'), url('./assets/fonts/Pilowlava-Atome.woff');
+}
+
+@font-face {
+  font-family: 'AppleSD Regular';
+  src: local('AppleSDGothicNeoRegular'), url('./assets/fonts/AppleSDGothicNeoRegular.ttf');
+}
+
+@font-face {
+  font-family: 'AppleSD Bold';
+  src: local('AppleSDGothicNeoBold'), url('./assets/fonts/AppleSDGothicNeoBold.ttf');
+}
+
+:root {
+  font-family: 'AppleSD Regular', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  --container-width: 360px;
+  --header-height: 72px;
+
+  color-scheme: light dark;
+  color: var(--black);
+  background-color: var(--white);
+
+  --white: rgba(234, 247, 246, 0.1);
+  --black: #2d2d2c;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 360px) {
+  :root {
+    --container-width: 360px;
+    --container-padding: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-width: 768px;
+    --container-padding: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 88px;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --container-width: 1200px;
+    --container-padding: 120px;
+  }
+}
+
+@media (min-width: 1366px) {
+  :root {
+    --container-width: 1200px;
+    --container-padding: 120px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --container-width: 1200px;
+    --container-padding: 240px;
+  }
+}
+
+@media (min-width: 1552px) {
+  :root {
+    --container-width: 1440px;
+    --container-padding: 240px;
+  }
+}
+
+@media (min-width: 1680px) {
+  :root {
+    --container-width: 1552px;
+    --container-padding: 360px;
+  }
+}
+
+@media (min-width: 1760px) {
+  :root {
+    --container-width: 1680px;
+    --container-padding: 360px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --container-width: 1680px;
+    --container-padding: 420px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --container-width: 1552px;
+    --container-padding: 420px;
+  }
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'AppleSD Regular';
+  font-size: 16px;
+  line-height: 24px;
+}
+
+h1 a {
+  font-family: 'Pilowlava';
+  color: var(--black);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 46px; /* 166.667% */
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'AppleSD Regular';
+  color: var(--black);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 46px; /* 166.667% */
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 54px;
+  }
+}
+
+p,
+h1 {
+  margin: 0;
+}
+
+a,
+p {
+  font-size: 18px;
+  color: var(--black);
+}
+
+a {
+  font-family: 'AppleSD Bold';
+  text-underline-offset: 4px;
+  letter-spacing: -0.187px;
+}
+
+a:hover {
+  color: var(--black);
+}
+
+p,
+h3 {
+  font-family: 'AppleSD Regular';
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: var(--white);
+  }
+  a:hover {
+    color: var(--accent-blue);
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+</file>
+
+<file path="src/types.ts">
+export type LinkInfo = {
+  id: string;
+  url: string;
+  title: string;
+  text: string;
+  serviceIcon: string;
+  service: string;
+  imageUrl: string;
+  userName: string;
+  perplexitySummary: string;
+};
+</file>
+
+<file path=".prettierrc">
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": false
+}
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meaning Future</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="src/link/link-detail.module.css">
+.wrapper {
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper h1 {
+  font-family: 'AppleSD Regular';
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.main__image {
+  min-width: 300px;
+  width: 100%;
+}
+
+.link__url {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 4px;
+}
+
+.link__url img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 40px var(--container-padding);
+  }
+}
+</file>
+
+<file path="src/shared/components/feed/feed.module.css">
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 132px var(--container-padding);
+  position: relative;
+
+  height: 100vh;
+}
+
+.bg-image {
+  background-image: var(--main-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  padding: 0;
+  top: 0;
+}
+
+.article__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+article {
+  background-color: transparent;
+}
+
+.article__wrapper:hover {
+  background-color: white;
+  box-shadow: 0px 2px 19px 0px rgba(36, 35, 36, 0.94);
+  border-radius: 4px;
+  transition:
+    0.5s,
+    transform 0.5s;
+}
+
+.article__image {
+  position: relative;
+}
+
+.article__main--image {
+  width: 161px;
+}
+
+.social__icon {
+  position: absolute;
+  right: 6px;
+  top: 76px;
+  width: 26px;
+  height: 26px;
+}
+
+.title__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title__wrapper p:first-of-type {
+  font-family: 'AppleSD Bold';
+  font-size: 26px;
+  line-height: 28px;
+}
+
+.view__detail {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view__detail a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .article__content {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .article__wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  .article__content {
+    flex: 1 1 0;
+  }
+
+  .title__wrapper {
+    align-items: unset;
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 1366px) {
+  .article__main--image {
+    width: 200px;
+  }
+
+  .social__icon {
+    right: 6px;
+    top: 96px;
+  }
+}
+</file>
+
+<file path="src/shared/components/header.module.css">
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px var(--container-padding);
+  z-index: 1;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav a {
+  text-decoration: none;
+}
+</file>
+
+<file path="src/link/link-detail.test.tsx">
+import { render, screen, act } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, Mock, vi } from 'vitest';
+import { getDocument } from '../shared/infrastructure/firestore-client';
+import { LinkDetail } from './link-detail';
+import { useParams } from 'react-router-dom';
+import { LinkInfo } from '../types';
+
+vi.mock('react-router-dom', async () => {
+  const actual = await vi.importActual('react-router-dom');
+  return {
+    ...actual, // Include other exports from react-router-dom
+    useParams: vi.fn(),
+  };
+});
+
+vi.mock('../shared/infrastructure/firestore-client.tsx', () => ({
+  getDocument: vi.fn(),
+}));
+
+describe('Individual link page', () => {
+  const mockResponse: LinkInfo = {
+    title:
+      'Tove Blomgren on LinkedIn: There is a new loud climate denier in town, and she goes by the innocent… | 60 comments',
+    userName: 'laponyo',
+    text: 'There is a new loud climate denier in town, and she goes by the innocent name of ”optimism”. \n\nI&amp;#39;m not talking about the optimism of activism and agency… | 60 comments on LinkedIn',
+    url: 'https://www.linkedin.com/posts/tove-blomgren-670a703_there-is-a-new-loud-climate-denier-in-town-ugcPost-7254364324859699201-smJb/?utm_source=share&utm_medium=member_ios',
+    perplexitySummary:
+      'The LinkedIn post by Tove Blomgren, titled "There is a new loud climate denier in town," discusses a critical perspective on the current approach to climate change. Here are the key points:\n\n- Blomgren argues that a new form of climate denial is emerging, which she terms "optimism." However, this is not the optimism associated with activism or positive change.\n- She suggests that this form of optimism is misleading because it downplays the severity of the climate crisis and the lack of significant progress in addressing it.\n- Blomgren critiques the idea that things are improving or that we are on the right path to mitigating climate change, emphasizing instead that the current efforts are insufficient and that there is no credible pathway to limit global warming to 1.5°C, as highlighted by recent UN reports.\n\nOverall, the post is a call to action, urging people to face the harsh reality of the climate situation rather than being complacent with overly optimistic narratives.',
+    service: 'linkedin.com',
+    serviceIcon: 'https://static.licdn.com/aero-v1/sc/h/al2o9zrvru7aqj8e1x2rzsrca',
+    imageUrl:
+      'https://media.licdn.com/dms/image/v2/D4D22AQEPRc5vUY6C3g/feedshare-shrink_800/feedshare-shrink_800/0/1729575231403?e=2147483647&v=beta&t=4tyIHI629zT1fgRkfLFdm0HvZt55ZlHeHQwVAaARIgY',
+    id: '3l6sb85ZaUC5IPpMDDgz',
+  };
+
+  beforeEach(async () => {
+    (useParams as Mock).mockReturnValue({ id: '123' });
+    (getDocument as Mock).mockResolvedValue(mockResponse);
+
+    await act(async () => {
+      render(<LinkDetail />);
+    });
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  it('renders link title', () => {
+    const linkTitle = screen.queryByRole('heading', {
+      level: 1,
+    });
+
+    expect(getDocument).toHaveBeenCalledWith('123');
+    expect(linkTitle).toBeInTheDocument();
+  });
+});
+</file>
+
+<file path="src/shared/components/feed/feed.tsx">
+import { useCallback, useEffect, useRef } from 'react';
+import styles from './feed.module.css';
+import { LinkInfo } from '../../../types.ts';
+import LinkPreview from '../link-preview.tsx';
+import defaultBgImages from '../../../images-data/bg-images.ts';
+
+interface FeedProps {
+  links: LinkInfo[];
+}
+
+export const Feed = ({ links }: FeedProps) => {
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  const handleLinkHover = useCallback(
+    (image: string) => {
+      if (mainRef && 'current' in mainRef && mainRef.current) {
+        mainRef.current.style.setProperty('--main-bg-image', `url(${image || defaultBgImages[0]})`);
+        mainRef.current.style.boxShadow = 'inset 0 0 0 2000px rgba(0, 0, 0, 0.3)';
+      }
+    },
+    [mainRef]
+  );
+
+  const handleLinkOnLeave = useCallback(() => {
+    if (mainRef && 'current' in mainRef && mainRef.current) {
+      mainRef.current.style.setProperty('--main-bg-image', '');
+      mainRef.current.style.boxShadow = '';
+    }
+  }, [mainRef]);
+
+  useEffect(() => {
+    const element = mainRef && 'current' in mainRef && mainRef.current;
+
+    if (element) {
+      element.addEventListener('mouseenter', () => handleLinkHover(defaultBgImages[0]));
+      element.addEventListener('mouseleave', handleLinkOnLeave);
+
+      return () => {
+        element.removeEventListener('mouseenter', () => handleLinkHover(defaultBgImages[0]));
+        element.removeEventListener('mouseleave', handleLinkOnLeave);
+      };
+    }
+  }, [mainRef, handleLinkHover, handleLinkOnLeave]);
+
+  return (
+    <main ref={mainRef} className={styles['bg-image']}>
+      <section className={styles.wrapper}>
+        {links.map((link) => (
+          <LinkPreview
+            key={link.id}
+            link={link}
+            onHover={() => handleLinkHover(link.imageUrl)}
+            onLeave={handleLinkOnLeave}
+          />
+        ))}
+      </section>
+    </main>
+  );
+};
+</file>
+
+<file path="eslint.config.js">
+import eslint from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+
+export default tseslint.config(
+  {
+    ignores: ['**/dist/*', 'tsconfig.json'],
+  },
+  eslintPluginPrettierRecommended,
+  {
+    extends: [
+      eslint.configs.recommended,
+      ...tseslint.configs.recommended,
+      {
+        rules: {
+          indent: 'error',
+        },
+      },
+      eslintConfigPrettier,
+    ],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    },
+  }
+);
+</file>
+
+<file path="src/shared/components/header.tsx">
+import { NavLink } from 'react-router-dom';
+import styles from './header.module.css';
+
+export const Header: React.FC = () => {
+  return (
+    <header className={styles.header}>
+      <h1>
+        <NavLink to="/">Meaning future</NavLink>
+      </h1>
+      <nav className={styles.nav} role="navigation">
+        <ul>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  );
+};
+</file>
+
+<file path="src/shared/components/link-preview.module.css">
+.article__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+article {
+  background-color: transparent;
+}
+
+.article__wrapper:hover {
+  background-color: white;
+  box-shadow: 0px 2px 19px 0px rgba(36, 35, 36, 0.94);
+  border-radius: 4px;
+  transition:
+    0.5s,
+    transform 0.5s;
+}
+
+.article__image {
+  position: relative;
+}
+
+.article__main--image {
+  width: 161px;
+}
+
+.social__icon {
+  position: absolute;
+  right: 6px;
+  top: 76px;
+  width: 26px;
+  height: 26px;
+}
+
+.title__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.title__wrapper h2 {
+  font-family: 'AppleSD Bold';
+  font-size: 26px;
+  line-height: 28px;
+}
+
+.view__detail {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view__detail a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .article__content {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .article__wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+  }
+
+  .article__content {
+    flex: 1 1 0;
+  }
+
+  .title__wrapper {
+    align-items: unset;
+    flex: 1 1 0;
+  }
+}
+
+@media (min-width: 1366px) {
+  .article__main--image {
+    width: 200px;
+  }
+
+  .social__icon {
+    right: 6px;
+    top: 96px;
+  }
+}
+</file>
+
+<file path="vite.config.ts">
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    setupFiles: './src/tests/setup.ts',
+  },
+  build: {
+    rollupOptions: {
+      external: (id: string) => {
+        return /.*\.test\.(js|ts)$/.test(id) || /tests/.test(id);
+      },
+    },
+  },
+});
+</file>
+
+<file path="src/link/link-detail.tsx">
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getDocument } from '../shared/infrastructure/firestore-client';
+import { LinkInfo } from '../types';
+import styles from './link-detail.module.css';
+import defaultBgImages from '../images-data/bg-images';
+
+export const LinkDetail = () => {
+  const { id } = useParams();
+  const [link, setLink] = useState<LinkInfo>({} as LinkInfo);
+
+  const defaultImage = defaultBgImages[0];
+
+  useEffect(() => {
+    (async () => {
+      if (!id) {
+        return;
+      }
+
+      const link = await getDocument(id);
+      setLink(link);
+    })();
+  }, [id]);
+
+  return (
+    <section className={styles.wrapper}>
+      <h1>{link.title}</h1>
+      <img className={styles.main__image} src={link.imageUrl || defaultImage} alt="link image" />
+
+      <a className={styles.link__url} href={link.url} target="_blank" rel="noopener noreferrer">
+        <img src={link.serviceIcon} alt="service icon" />
+        <p>{link.service}</p>
+      </a>
+      <div>
+        <h2>What's the link about?</h2>
+        <p>{link.perplexitySummary}</p>
+      </div>
+    </section>
+  );
+};
+</file>
+
+<file path="src/index.test.tsx">
+import { act, fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
+import { Header } from './shared/components/header';
+import { MemoryRouter } from 'react-router-dom';
+import { HomeFeed } from './home-feed/home-feed';
+
+describe('When the page loads', () => {
+  it('renders the Home Feed component', async () => {
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <HomeFeed />
+        </MemoryRouter>
+      );
+    });
+
+    const [titles] = await screen.findAllByRole('heading', { level: 2 });
+    expect(titles).toBeInTheDocument();
+  });
+
+  it('renders the header', () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const heading = screen.getByRole('heading', {
+      name: /Meaning future/i,
+    });
+    expect(heading).toHaveTextContent(/Meaning future/);
+
+    const menuNavigation = screen.getByRole('navigation');
+    expect(menuNavigation).toBeInTheDocument();
+
+    screen.debug();
+  });
+
+  it('navigates when the user clicks on About page', async () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const aboutElement = screen.getByText(/About/i);
+
+    fireEvent.click(aboutElement);
+    expect(screen.getByText('About')).toBeInTheDocument();
+  });
+});
+</file>
+
+<file path="src/index.tsx">
+import React, { StrictMode } from 'react';
+import * as ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  createRoutesFromChildren,
+  matchRoutes,
+  RouterProvider,
+  useLocation,
+  useNavigationType,
+} from 'react-router-dom';
+import './global.css';
+import * as Sentry from '@sentry/react';
+import { UserFeed } from './user-feed/user-feed';
+import { LinkDetail } from './link/link-detail';
+import { Layout } from './Layout.tsx';
+import { HomeFeed } from './home-feed/home-feed.tsx';
+import { About } from './about/about.tsx';
+
+if (import.meta.env.MODE !== 'development') {
+  Sentry.init({
+    dsn: 'https://6dc13e3a21259cffcea6d636e268ff97@o4507889958125568.ingest.de.sentry.io/4507889971691600',
+    integrations: [
+      Sentry.reactRouterV6BrowserTracingIntegration({
+        useEffect: React.useEffect,
+        useLocation,
+        useNavigationType,
+        createRoutesFromChildren,
+        matchRoutes,
+      }),
+    ],
+    tracesSampleRate: 1.0,
+  });
+}
+
+const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRouter);
+
+const router = sentryCreateBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        path: '/',
+        element: <HomeFeed />,
+      },
+      {
+        path: '/:user',
+        element: <UserFeed />,
+      },
+      {
+        path: '/link/:id',
+        element: <LinkDetail />,
+      },
+      {
+        path: 'about',
+        element: <About />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>
+);
+</file>
+
+<file path="src/shared/components/link-preview.tsx">
+import styles from './link-preview.module.css';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
+import { LinkInfo } from '../../types';
+import defaultBgImages from '../../images-data/bg-images.ts';
+import { MouseEventHandler } from 'react';
+
+interface Props {
+  link: LinkInfo;
+  onHover: MouseEventHandler<HTMLDivElement>;
+  onLeave: MouseEventHandler<HTMLDivElement>;
+}
+
+const LinkPreview = ({ link, onHover, onLeave }: Props) => {
+  return (
+    <>
+      <article className={styles.article}>
+        <section
+          className={styles['article__wrapper']}
+          onMouseEnter={onHover}
+          onMouseLeave={onLeave}
+        >
+          <div className={styles.article__content}>
+            <div className={styles.article__image}>
+              <img
+                className={styles['article__main--image']}
+                src={link.imageUrl || defaultBgImages[0]}
+                alt="link imge"
+                aria-label="link image"
+              />
+              <img
+                className={styles['social__icon']}
+                src={link.serviceIcon}
+                alt="service icon"
+                aria-label="service icon"
+              />
+            </div>
+            <div className={styles['title__wrapper']}>
+              <h2>{link.title}</h2>
+              <p>{link.text}</p>
+            </div>
+          </div>
+
+          <div className={styles.view__detail}>
+            <Link to={`/link/${link.id}`}>Read more</Link>
+            <ArrowUpRight />
+          </div>
+        </section>
+      </article>
+    </>
+  );
+};
+
+export default LinkPreview;
+</file>
+
+<file path="src/user-feed/user-feed.tsx">
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getUserDocuments } from '../shared/infrastructure/firestore-client.tsx';
+import { LinkInfo } from '../types.ts';
+import { Feed } from '../shared/components/feed/feed.tsx';
+
+export const UserFeed = () => {
+  const [links, setlinks] = useState<LinkInfo[]>([]);
+  const { user } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      const userLinks = await getUserDocuments(user!);
+      setlinks(userLinks);
+    })();
+  }, [user]);
+
+  return <Feed links={links} />;
+};
+</file>
+
+<file path="package.json">
+{
+  "name": "meaning-future",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "format": "prettier --check \"**/*.{js,ts,jsx,tsx}\"",
+    "format:fix": "prettier  --write \"**/*.{js,ts,jsx,tsx}\"",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "lint:fix": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\" --fix",
+    "test": "vitest",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@sentry/react": "^8.28.0",
+    "firebase": "^10.13.0",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.1",
+    "styled-components": "^6.1.12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.13.0",
+    "history": "^5.3.0",
+    "jsdom": "^25.0.0",
+    "prettier": "3.4.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.14.0",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "vite": "^5.4.1",
+    "vitest": "^2.1.8"
+  }
+}
+</file>
+
+<file path=".github/workflows/main.yml">
+name: Run CI
+run-name: ${{ github.actor }} is running GitHub Actions 🚀
+on: [push]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: checkout_node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: run ESLint 
+        run: npm run lint
+
+      - name: run Prettier
+        run: npm run format
+
+      - name: test
+        run: npm run test
+</file>
+
+</files>
