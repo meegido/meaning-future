@@ -21,9 +21,7 @@ export const HomeFeed = () => {
   const filteredLinks = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return links;
-    return links.filter((link) =>
-      (link.perplexitySummary ?? '').toLowerCase().includes(q)
-    );
+    return links.filter((link) => (link.perplexitySummary ?? '').toLowerCase().includes(q));
   }, [links, query]);
 
   const showEmptyMessage = !loading && filteredLinks.length === 0 && query.trim() !== '';
