@@ -32,7 +32,10 @@ if (import.meta.env.MODE !== 'development') {
   });
 }
 
-const sentryCreateBrowserRouter = Sentry.wrapCreateBrowserRouter(createBrowserRouter);
+const sentryCreateBrowserRouter =
+  import.meta.env.MODE !== 'development'
+    ? Sentry.wrapCreateBrowserRouter(createBrowserRouter)
+    : createBrowserRouter;
 
 const router = sentryCreateBrowserRouter([
   {
