@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
+import styles from './search-box.module.css';
 
 interface SearchBoxProps {
   onQueryChange: (query: string) => void;
@@ -26,12 +27,15 @@ export const SearchBox = ({
   };
 
   return (
-    <input
-      type="search"
-      aria-label="Buscar enlaces"
-      placeholder={placeholder}
-      value={value}
-      onChange={handleChange}
-    />
+    <div className={styles.wrapper}>
+      <input
+        type="search"
+        aria-label="Buscar enlaces"
+        placeholder={placeholder}
+        value={value}
+        onChange={handleChange}
+        className={styles.input}
+      />
+    </div>
   );
 };
