@@ -58,11 +58,10 @@ describe('Home feed', () => {
     await user.type(input, 'react');
 
     await waitFor(() => {
-      const readMoreLink = screen.getAllByText(/Read more/i);
-      expect(readMoreLink).toHaveLength(1);
+      expect(screen.getAllByText(/Read more/i)).toHaveLength(1);
+      expect(screen.getByRole('heading', { level: 2, name: 'Example 1' })).toBeInTheDocument();
+      expect(screen.queryByRole('heading', { level: 2, name: 'Example 2' })).not.toBeInTheDocument();
     });
-    expect(screen.getByRole('heading', { level: 2, name: 'Example 1' })).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { level: 2, name: 'Example 2' })).not.toBeInTheDocument();
   });
 
   it('shows a "no results" message when the query matches no link', async () => {

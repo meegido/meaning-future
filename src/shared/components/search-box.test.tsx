@@ -17,6 +17,7 @@ describe('SearchBox', () => {
     render(<SearchBox onQueryChange={onQueryChange} debounceMs={250} />);
 
     const input = screen.getByRole('searchbox', { name: /buscar enlaces/i });
+    onQueryChange.mockClear();
     act(() => {
       fireEvent.change(input, { target: { value: 'react' } });
     });

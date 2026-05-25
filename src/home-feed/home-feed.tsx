@@ -12,9 +12,12 @@ export const HomeFeed = () => {
 
   useEffect(() => {
     (async () => {
-      const links = await getDocuments();
-      setLinks(links);
-      setLoading(false);
+      try {
+        const links = await getDocuments();
+        setLinks(links);
+      } finally {
+        setLoading(false);
+      }
     })();
   }, []);
 
