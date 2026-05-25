@@ -30,4 +30,36 @@ describe('SearchBox', () => {
     expect(onQueryChange).toHaveBeenCalledTimes(1);
     expect(onQueryChange).toHaveBeenLastCalledWith('react');
   });
+
+  it('debounces rapid typing and emits only the final value', () => {
+    const onQueryChange = vi.fn();
+
+    render(<SearchBox onQueryChange={onQueryChange} debounceMs={250} />);
+
+    const input = screen.getByRole('searchbox', { name: /buscar enlaces/i });
+
+    onQueryChange.mockClear();
+
+    act(() => {
+      fireEvent.change(input, { target: { value: 'rea' } });
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(100);
+    });
+
+    act(() => {
+      fireEvent.change(input, { target: { value: 'react' } });
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(250);
+    });
+
+    const callsWithRealValues = onQueryChange.mock.calls.filter(
+      ([arg]) => arg !== ''
+    );
+    expect(callsWithRealValues).toHaveLength(1);
+    expect(callsWithRealValues[0]).toEqual(['react']);
+  });
 });
