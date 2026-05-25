@@ -20,7 +20,7 @@ if (import.meta.env.MODE !== 'development') {
   Sentry.init({
     dsn: 'https://6dc13e3a21259cffcea6d636e268ff97@o4507889958125568.ingest.de.sentry.io/4507889971691600',
     integrations: [
-      Sentry.reactRouterV6BrowserTracingIntegration({
+      Sentry.reactRouterV7BrowserTracingIntegration({
         useEffect: React.useEffect,
         useLocation,
         useNavigationType,
@@ -34,7 +34,7 @@ if (import.meta.env.MODE !== 'development') {
 
 const sentryCreateBrowserRouter =
   import.meta.env.MODE !== 'development'
-    ? Sentry.wrapCreateBrowserRouter(createBrowserRouter)
+    ? Sentry.wrapCreateBrowserRouterV7(createBrowserRouter)
     : createBrowserRouter;
 
 const router = sentryCreateBrowserRouter([
