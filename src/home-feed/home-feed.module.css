@@ -1,0 +1,7 @@
+.empty {
+  text-align: center;
+  padding: 48px var(--container-padding);
+  font-family: inherit;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.7);
+}

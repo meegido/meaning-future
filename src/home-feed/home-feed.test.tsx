@@ -64,4 +64,14 @@ describe('Home feed', () => {
     expect(screen.getByRole('heading', { level: 2, name: 'Example 1' })).toBeInTheDocument();
     expect(screen.queryByRole('heading', { level: 2, name: 'Example 2' })).not.toBeInTheDocument();
   });
+
+  it('shows a "no results" message when the query matches no link', async () => {
+    const user = userEvent.setup();
+    const input = screen.getByRole('searchbox', { name: /buscar enlaces/i });
+
+    await user.type(input, 'zzz-no-match');
+
+    expect(await screen.findByText('No se han encontrado enlaces')).toBeInTheDocument();
+    expect(screen.queryByText(/Read more/i)).not.toBeInTheDocument();
+  });
 });
