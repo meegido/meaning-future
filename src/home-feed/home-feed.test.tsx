@@ -60,7 +60,9 @@ describe('Home feed', () => {
     await waitFor(() => {
       expect(screen.getAllByText(/Read more/i)).toHaveLength(1);
       expect(screen.getByRole('heading', { level: 2, name: 'Example 1' })).toBeInTheDocument();
-      expect(screen.queryByRole('heading', { level: 2, name: 'Example 2' })).not.toBeInTheDocument();
+      expect(
+        screen.queryByRole('heading', { level: 2, name: 'Example 2' })
+      ).not.toBeInTheDocument();
     });
   });
 
